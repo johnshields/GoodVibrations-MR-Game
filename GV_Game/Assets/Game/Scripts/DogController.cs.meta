@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 94677a6eb098f8645a65e81abf961d31
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bark: {fileID: 8300000, guid: b0e17c5ba4f76a4469122573147db16a, type: 3}
+  - cameraTransform: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

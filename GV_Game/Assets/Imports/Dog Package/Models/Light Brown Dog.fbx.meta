@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 8108771ab2235ec4b9976ac2111c42fb
+timeCreated: 1498575399
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: L Back Leg Lower Bone
+    100004: L Back Leg Middle Bone
+    100006: L Back Leg Upper Bone
+    100008: L Back Pawn Bone
+    100010: L Back Pawn Bone_end
+    100012: L Ear Bone
+    100014: L Ear Bone_end
+    100016: L Eye Bone
+    100018: L Eye Bone_end
+    100020: L Front Leg Lower Bone
+    100022: L Front Leg Middle Bone
+    100024: L Front Leg Upper Bone
+    100026: L Front Pawn Bone
+    100028: L Front Pawn Bone_end
+    100030: //RootNode
+    100032: Light Brown Dog
+    100034: Lower Body Bone
+    100036: Lower Jaw Bone
+    100038: Neck Bone
+    100040: R Back Leg Lower Bone
+    100042: R Back Leg Middle Bone
+    100044: R Back Leg Upper Bone
+    100046: R Back Pawn Bone
+    100048: R Back Pawn Bone_end
+    100050: R Ear Bone
+    100052: R Ear Bone_end
+    100054: R Eye Bone
+    100056: R Eye Bone_end
+    100058: R Front Leg Lower Bone
+    100060: R Front Leg Middle Bone
+    100062: R Front Leg Upper Bone
+    100064: R Front Pawn Bone
+    100066: R Front Pawn Bone_end
+    100068: Tail Base Bone
+    100070: Tail Middle Bone
+    100072: Tail Tip Bone
+    100074: Tail Tip Bone_end
+    100076: Tongue Back Bone
+    100078: Tongue Front Bone
+    100080: Tongue Front Bone_end
+    100082: Upper Body Bone
+    100084: Upper Jaw Bone
+    400000: Armature
+    400002: L Back Leg Lower Bone
+    400004: L Back Leg Middle Bone
+    400006: L Back Leg Upper Bone
+    400008: L Back Pawn Bone
+    400010: L Back Pawn Bone_end
+    400012: L Ear Bone
+    400014: L Ear Bone_end
+    400016: L Eye Bone
+    400018: L Eye Bone_end
+    400020: L Front Leg Lower Bone
+    400022: L Front Leg Middle Bone
+    400024: L Front Leg Upper Bone
+    400026: L Front Pawn Bone
+    400028: L Front Pawn Bone_end
+    400030: //RootNode
+    400032: Light Brown Dog
+    400034: Lower Body Bone
+    400036: Lower Jaw Bone
+    400038: Neck Bone
+    400040: R Back Leg Lower Bone
+    400042: R Back Leg Middle Bone
+    400044: R Back Leg Upper Bone
+    400046: R Back Pawn Bone
+    400048: R Back Pawn Bone_end
+    400050: R Ear Bone
+    400052: R Ear Bone_end
+    400054: R Eye Bone
+    400056: R Eye Bone_end
+    400058: R Front Leg Lower Bone
+    400060: R Front Leg Middle Bone
+    400062: R Front Leg Upper Bone
+    400064: R Front Pawn Bone
+    400066: R Front Pawn Bone_end
+    400068: Tail Base Bone
+    400070: Tail Middle Bone
+    400072: Tail Tip Bone
+    400074: Tail Tip Bone_end
+    400076: Tongue Back Bone
+    400078: Tongue Front Bone
+    400080: Tongue Front Bone_end
+    400082: Upper Body Bone
+    400084: Upper Jaw Bone
+    4300000: Light Brown Dog
+    7400000: Armature|Bark
+    7400002: Armature|Bite
+    7400004: Armature|Die
+    7400006: Armature|Idle
+    7400008: Armature|Jump
+    7400010: Armature|Lay Down
+    7400012: Armature|Lying Down Idle
+    7400014: Armature|Run
+    7400016: Armature|Sit Down
+    7400018: Armature|Sit Idle
+    7400020: Armature|Surprised
+    7400022: Armature|Walk
+    9500000: //RootNode
+    13700000: Light Brown Dog
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
