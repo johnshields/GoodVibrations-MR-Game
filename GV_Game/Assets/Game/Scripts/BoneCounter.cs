@@ -29,7 +29,7 @@ namespace Game.Scripts
         private void OnGUI()
         {
             // find Bones Counter
-            var boneTxt = GameObject.Find("BoneCounter/Text").GetComponent<Text>();
+            var boneTxt = GameObject.Find("CounterCanvas/Text").GetComponent<Text>();
             // and add the updated Bones amount
             boneTxt.text = "BONES: " + bones;
         }

@@ -16,9 +16,11 @@ namespace Game.Scripts
         private void OnTriggerEnter(Collider other)
         {
             var position = transform.position;
+            // pickup sounds
             AudioSource.PlayClipAtPoint(pickupSound, position);
             AudioSource.PlayClipAtPoint(bark, position);
-            Destroy(gameObject); // destroy Bone
+            // destroy Bone
+            Destroy(gameObject);
             // add to the Bone Counter
             other.GetComponent<BoneCounter>().bones += 1;
             Debug.Log("Bone Collected!");
