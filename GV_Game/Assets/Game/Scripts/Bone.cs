@@ -23,7 +23,6 @@ namespace Game.Scripts
             Destroy(gameObject);
             // add to the Bone Counter
             other.GetComponent<BoneCounter>().bones += 1;
-            Debug.Log("Bone Collected!");
         }
     }
 }

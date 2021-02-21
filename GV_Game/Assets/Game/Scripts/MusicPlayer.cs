@@ -8,16 +8,20 @@ namespace Game.Scripts
         public AudioClip[] tunes;
         private AudioSource _audioSource;
         
-        private void Start()
-        {
-            _audioSource.loop = false;
-            _audioSource.clip=tunes[Random.Range(0, tunes.Length)];
-            _audioSource.PlayOneShot(_audioSource.clip);
-        }
-
         private void Awake()
         {
+            // find music player
             _audioSource = GameObject.Find("Music Player").GetComponent<AudioSource>();
+        }
+        
+        private void Update()
+        {
+            // if the audio source is not playing pick a random tune to play
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.clip=tunes[Random.Range(0, tunes.Length)];
+                _audioSource.PlayOneShot(_audioSource.clip);
+            }
         }
 
     }

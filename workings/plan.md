@@ -26,14 +26,14 @@
 
 
 ###### 4. Idle Movement
-  * Idle/Yield/Stop
+  * Idle/Yield/Stop/Halt
 
 
 ###### 5. Walk Movement
-  * Walk/Go/Forward
+  * Walk/Go/Forward/Stroll/Wander
 
 
 ###### 6. Run Movement
-  * Run/Sprint/Faster
+  * Run/Jog/Dash
 
 ###### END OF PLAN

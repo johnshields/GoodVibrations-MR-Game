@@ -78,16 +78,19 @@ namespace Game.Scripts
                 case "idle":
                 case "yield":
                 case "stop":
+                case "halt":
                     Idle();
                     break;
                 case "walk":
                 case "go":
                 case "forward":
+                case "stroll":
+                case "wander":
                     Walk();
                     break;
                 case "run":
-                case "sprint":
-                case "faster":
+                case "jog":
+                case "dash":
                     Run();
                     break;
             }

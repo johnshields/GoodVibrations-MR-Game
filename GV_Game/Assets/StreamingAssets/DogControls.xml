@@ -26,6 +26,7 @@
             <item>idle</item>
             <item>yield</item>
             <item>stop</item>
+            <item>halt</item>
         </one-of>
     </rule>
 
@@ -34,6 +35,8 @@
             <item>walk</item>
             <item>go</item>
             <item>forward</item>
+            <item>stroll</item>
+            <item>wander</item>
         </one-of>
     </rule>
 
@@ -41,8 +44,8 @@
     <rule id="run">
         <one-of>
             <item>run</item>
-            <item>sprint</item>
-            <item>faster</item>
+            <item>jog</item>
+            <item>dash</item>
         </one-of>
     </rule>
 </grammar>
