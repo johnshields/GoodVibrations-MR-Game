@@ -4,12 +4,13 @@
 
 ### World
   * Park
-  * Trees, Grass, Bushes
-  * Other Dogs
+  * Trees, Grass, flowers, Bushes
+  * Dog & Human NPCs
+  * Bone Collectables 
 
 ## Speech rules
 ###### 1. Start Menu
- * Start/Play/Okay/Continue/Begin
+ * Start/Play/Continue/Begin
  * Exit/Quit
 
 
@@ -19,8 +20,8 @@
 
 
 ###### 3. In-Game Menu
-  * Pause
-  * Resume
+  * Pause/Hold
+  * Resume/Back
   * Main Menu
 
 
@@ -33,6 +34,6 @@
 
 
 ###### 6. Run Movement
-  * Run/Sprint
+  * Run/Sprint/Faster
 
 ###### END OF PLAN

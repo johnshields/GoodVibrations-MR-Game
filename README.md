@@ -23,5 +23,11 @@ alt="GMIT Logo" width="500" height="200"/>
 # Good Vibrations
 Mixed Reality Game that allows the user to control the game by using voice commands, keyboard, and mouse.
 
+Play as a Dog and collect all the bones in the park!
+
+`Note:` Requires `English (US)` selected for computer speech settings.
+
+![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
+
 ***
 ###### END OF README
