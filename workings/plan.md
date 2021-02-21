@@ -1,6 +1,6 @@
 ## <u>Good Vibrations</u>
-* Voice Recognition Game
-* Dog Simulator
+* Mixed Reality Game that allows the user to control the game by using voice commands, keyboard, and mouse.
+* Main Character - Dog
 
 ### World
   * Park
@@ -9,7 +9,7 @@
 
 ## Speech rules
 ###### 1. Start Menu
- * Start/Play/Okay/Continue - 'Game'
+ * Start/Play/Okay/Continue/Begin
  * Exit/Quit
 
 
@@ -19,21 +19,20 @@
 
 
 ###### 3. In-Game Menu
-  * Pause - 'Game'
-  * Resume - 'Game'
+  * Pause
+  * Resume
   * Main Menu
-  * Exit/Quit
 
 
-###### 4. Idle Movement - Low Profile
+###### 4. Idle Movement
   * Idle/Yield/Stop
 
 
-###### 5. Walk Movement - Low Profile
-  * Walk/Go
+###### 5. Walk Movement
+  * Walk/Go/Forward
 
 
-###### 6. Run Movement - High Profile
+###### 6. Run Movement
   * Run/Sprint
 
 ###### END OF PLAN

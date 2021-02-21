@@ -40,10 +40,10 @@ namespace Game.Scripts
             
             // dog animator
             _animator = GetComponent<Animator>();
-            // low profile
+            // low profile animations
             _idleActive = Animator.StringToHash("IdleActive");
             _walkActive = Animator.StringToHash("WalkActive");
-            // high profile
+            // high profile animations
             _runActive = Animator.StringToHash("RunActive");
         }
 
