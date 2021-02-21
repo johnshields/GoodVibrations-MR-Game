@@ -16,8 +16,7 @@ namespace Game.Scripts
         [SerializeField] public float lowProfile = 2.0f;
         [SerializeField] public float highProfile = 6.0f;
         [SerializeField] public float rotationSpeed = 4.0f;
-        [SerializeField] public AudioClip bark;
-        
+
         // animator booleans
         private int _idleActive;
         private int _walkActive;
