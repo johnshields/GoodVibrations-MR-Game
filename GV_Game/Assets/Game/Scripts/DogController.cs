@@ -1,34 +1,44 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using System.Text;
+using UnityEngine;
+using UnityEngine.Windows.Speech;
 
 namespace Game.Scripts
 {
     public class DogController : MonoBehaviour
     {
+        // voice commands
+        private GrammarRecognizer _grammarRecognizer;
+        private static string _spokenWord = "";
+        
         // dog stats
-        private float _currentProfile;
-        [SerializeField] public float lowProfile = 0.02f;
-        [SerializeField] public float highProfile = 0.06f;
-        [SerializeField] public float rotationSpeed = 4.0f;
         private Rigidbody _bodyPhysics;
         private Animator _animator;
-        [SerializeField] public float jumpHeight = 20f;
-        [SerializeField] public float paws = 20f;
+        private float _currentProfile;
+        [SerializeField] public float lowProfile = 2.0f;
+        [SerializeField] public float highProfile = 6.0f;
+        [SerializeField] public float rotationSpeed = 4.0f;
         [SerializeField] public AudioClip bark;
-
-        // Camera 
-        public Transform cameraTransform;
-        private float _yaw;
-        private float _pitch;
-
+        
         // animator booleans
         private int _idleActive;
         private int _walkActive;
         private int _runActive;
         private int _barkActive;
-        private int _jumpActive;
-
+        
+        // Camera 
+        public Transform cameraTransform;
+        private float _yaw;
+        private float _pitch;
+        
         private void Start()
         {
+            _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath, 
+                "DogControls.xml"), ConfidenceLevel.Low);
+            _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
+            _grammarRecognizer.Start();
+            Debug.Log("Player Voice Controls loaded...");
+            
             _bodyPhysics = GetComponent<Rigidbody>();
             _animator = GetComponent<Animator>();
 
@@ -38,125 +48,104 @@ namespace Game.Scripts
             // high profile
             _runActive = Animator.StringToHash("RunActive");
             _barkActive = Animator.StringToHash("BarkActive");
-            _jumpActive = Animator.StringToHash("JumpActive");
         }
 
-        private void FixedUpdate()
+        private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
         {
-            DogMovement();
-            Jump();
-            Bark();
+            
+            var message = new StringBuilder();
+            // read the semantic meanings from the args passed in.
+            var meanings = args.semanticMeanings;
+            foreach (var meaning in meanings)
+            {
+                var item = meaning.values[0].Trim();
+                message.Append("Word detected: " + item);
+                _spokenWord = item;
+               
+            }
+            Debug.Log(message);
+        }
+        
+        private void Update()
+        {
+            VoiceCommands();
             CameraMovement();
         }
 
-        private void DogMovement()
+        // VoiceCommands - to call functions for dog movement
+        private void VoiceCommands()
+        {
+            switch (_spokenWord)
+            {
+                case "idle":
+                case "yield":
+                case "stop":
+                    Idle();
+                    break;
+                case "walk":
+                case "go":
+                case "forward":
+                    Walk();
+                    break;
+                case "run":
+                case "sprint":
+                case "faster":
+                    Run();
+                    break;
+            }
+        }
+        
+        private void Idle()
+        {
+            // stop dog
+            transform.position += new Vector3(0,0,0); 
+            _currentProfile = 0;
+            // idle animation
+            _animator.SetBool(_idleActive, true);
+            _animator.SetBool(_walkActive, false);
+            _animator.SetBool(_runActive, false);
+        }
+        
+        private void Walk()
         {
             // move dog
-            var z = Input.GetAxis("Vertical") * _currentProfile;
+            transform.Translate(0, 0, lowProfile*Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
-            transform.Translate(0, 0, z);
             transform.Rotate(0, y, 0);
-
-            // player Inputs
-            var forwardPressed = Input.GetKey("w");
-            var highProfilePressed = Input.GetKey("left shift");
-
-            if (highProfilePressed)
-            {
-                if (forwardPressed)
-                {
-                    // Run
-                    _animator.SetBool(_runActive, true);
-                    _animator.SetBool(_idleActive, false);
-                    _animator.SetBool(_walkActive, false);
-                    _animator.SetBool(_barkActive, false);
-                    _animator.SetBool(_jumpActive, false);
-                }
-                else
-                {
-                    // Idle
-                    _animator.SetBool(_idleActive, true);
-                    _animator.SetBool(_runActive, false);
-                    _animator.SetBool(_walkActive, false);
-                    _animator.SetBool(_barkActive, false);
-                    _animator.SetBool(_jumpActive, false);
-                }
-
-                _currentProfile = highProfile;
-            }
-            else
-            {
-                if (forwardPressed)
-                {
-                    // Walk
-                    _animator.SetBool(_walkActive, true);
-                    _animator.SetBool(_runActive, false);
-                    _animator.SetBool(_idleActive, false);
-                    _animator.SetBool(_barkActive, false);
-                    _animator.SetBool(_jumpActive, false);
-                }
-                else
-                {
-                    // Idle
-                    _animator.SetBool(_idleActive, true);
-                    _animator.SetBool(_runActive, false);
-                    _animator.SetBool(_walkActive, false);
-                    _animator.SetBool(_barkActive, false);
-                    _animator.SetBool(_jumpActive, false);
-                }
-
-                _currentProfile = lowProfile;
-            }
-        }
-
-        private void Jump()
-        {
-            if (!Input.GetButtonDown("Jump")) return;
-            // player does not jump if is not touching the ground layer
-            if (!(transform.position.y <= paws)) return;
-            _bodyPhysics.AddForce(Vector3.up * jumpHeight);
-            _animator.SetBool(_jumpActive, true);
+            _currentProfile = lowProfile;
+            // walk animation
+            _animator.SetBool(_walkActive, true);
+            _animator.SetBool(_runActive, false);
             _animator.SetBool(_idleActive, false);
-            _animator.SetBool(_runActive, false);
-            _animator.SetBool(_walkActive, false);
-            _animator.SetBool(_barkActive, false);
         }
-
-        private void Bark()
+        
+        private void Run()
         {
-            // Player Input
-            var barkPressed = Input.GetKeyDown("b");
-            // Animator bool
-            var barkActive = _animator.GetBool(_barkActive);
-
-            if (barkPressed)
-            {
-                // bark
-                AudioSource.PlayClipAtPoint(bark, transform.position);
-                _animator.SetBool(_barkActive, true);
-                _animator.SetBool(_idleActive, false);
-                _animator.SetBool(_runActive, false);
-                _animator.SetBool(_walkActive, false);
-                _animator.SetBool(_jumpActive, false);
-            }
-
-            // idle
-            if (!barkActive || barkPressed) return;
-            _animator.SetBool(_idleActive, true);
-            _animator.SetBool(_barkActive, false);
-            _animator.SetBool(_runActive, false);
+            // move dog
+            transform.Translate(0, 0, highProfile*Time.deltaTime);
+            var y = Input.GetAxis("Horizontal") * rotationSpeed;
+            transform.Rotate(0, y, 0);
+            _currentProfile = highProfile;
+            // run animation
+            _animator.SetBool(_runActive, true);
             _animator.SetBool(_walkActive, false);
-            _animator.SetBool(_jumpActive, false);
+            _animator.SetBool(_idleActive, false);
         }
-
 
         private void CameraMovement()
         {
-            // move Camera with mouse
+            // move camera with mouse
             _yaw += rotationSpeed * Input.GetAxisRaw("Mouse X");
             _pitch -= rotationSpeed * Input.GetAxisRaw("Mouse Y");
             transform.eulerAngles = new Vector3(0, _yaw, 0);
             cameraTransform.eulerAngles = new Vector3(_pitch, _yaw, 0);
+        }
+
+        private void OnApplicationQuit()
+        {
+            if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;
+            _grammarRecognizer.OnPhraseRecognized -= GR_OnPhraseRecognised;
+            _grammarRecognizer.Stop();
         }
     }
 }

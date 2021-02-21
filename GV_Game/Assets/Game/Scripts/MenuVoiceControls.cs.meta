@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 6c31260a62973fb438e5024c8599a738
+guid: cbf6abe736f98944b8c03f34a2cbd118
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - bark: {fileID: 8300000, guid: b0e17c5ba4f76a4469122573147db16a, type: 3}
-  - cameraTransform: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
