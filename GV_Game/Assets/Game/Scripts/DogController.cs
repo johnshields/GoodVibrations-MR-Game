@@ -12,9 +12,7 @@ namespace Game.Scripts
         private static string _spokenWord = "";
         
         // dog stats
-        private Rigidbody _bodyPhysics;
         private Animator _animator;
-        private float _currentProfile;
         [SerializeField] public float lowProfile = 2.0f;
         [SerializeField] public float highProfile = 6.0f;
         [SerializeField] public float rotationSpeed = 4.0f;
@@ -24,9 +22,8 @@ namespace Game.Scripts
         private int _idleActive;
         private int _walkActive;
         private int _runActive;
-        private int _barkActive;
-        
-        // Camera 
+
+        // for camera movement 
         public Transform cameraTransform;
         private float _yaw;
         private float _pitch;
@@ -41,15 +38,13 @@ namespace Game.Scripts
             _grammarRecognizer.Start();
             Debug.Log("Player Voice Controls loaded...");
             
-            _bodyPhysics = GetComponent<Rigidbody>();
+            // dog animator
             _animator = GetComponent<Animator>();
-
             // low profile
             _idleActive = Animator.StringToHash("IdleActive");
             _walkActive = Animator.StringToHash("WalkActive");
             // high profile
             _runActive = Animator.StringToHash("RunActive");
-            _barkActive = Animator.StringToHash("BarkActive");
         }
 
         private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
@@ -102,8 +97,7 @@ namespace Game.Scripts
         private void Idle()
         {
             // stop dog
-            transform.position += new Vector3(0,0,0); 
-            _currentProfile = 0;
+            transform.position += new Vector3(0,0,0);
             // idle animation
             _animator.SetBool(_idleActive, true);
             _animator.SetBool(_walkActive, false);
@@ -116,7 +110,6 @@ namespace Game.Scripts
             transform.Translate(0, 0, lowProfile*Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
-            _currentProfile = lowProfile;
             // walk animation
             _animator.SetBool(_walkActive, true);
             _animator.SetBool(_runActive, false);
@@ -129,7 +122,6 @@ namespace Game.Scripts
             transform.Translate(0, 0, highProfile*Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
-            _currentProfile = highProfile;
             // run animation
             _animator.SetBool(_runActive, true);
             _animator.SetBool(_walkActive, false);
