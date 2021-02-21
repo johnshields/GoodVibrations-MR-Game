@@ -33,8 +33,10 @@ namespace Game.Scripts
         
         private void Start()
         {
+            // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath, 
                 "DogControls.xml"), ConfidenceLevel.Low);
+            // start grammar recogniser
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
             Debug.Log("Player Voice Controls loaded...");
@@ -52,17 +54,19 @@ namespace Game.Scripts
 
         private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
         {
-            
             var message = new StringBuilder();
             // read the semantic meanings from the args passed in.
             var meanings = args.semanticMeanings;
+            // for each to get all the meanings.
             foreach (var meaning in meanings)
             {
+                // get the items for xml file
                 var item = meaning.values[0].Trim();
                 message.Append("Word detected: " + item);
+                // for calling in VoiceCommands
                 _spokenWord = item;
-               
             }
+            // print word spoken by user
             Debug.Log(message);
         }
         

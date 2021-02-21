@@ -1,2 +1,2 @@
 # Good Vibrations Game
-A Dog Simulator controlled by Voice Commands and/or Keyboard & Mouse Input.
+A Dog Simulator/Game controlled by Voice Commands and/or Keyboard & Mouse Input.

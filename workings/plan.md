@@ -25,19 +25,15 @@
   * Exit/Quit
 
 
-###### 4. Movement - Low Profile
+###### 4. Idle Movement - Low Profile
   * Idle/Yield/Stop
+
+
+###### 5. Walk Movement - Low Profile
   * Walk/Go
 
 
-###### 5. Movement - High Profile
+###### 6. Run Movement - High Profile
   * Run/Sprint
-  * Jump/Hop
-  * Bark
-
-
-###### 6. Movement - Direction
-  * Turn/Go - 'Right'
-  * Turn/Go - 'Left'
 
 ###### END OF PLAN

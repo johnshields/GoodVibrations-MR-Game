@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <grammar version="1.0" xml:lang="en-US" mode="voice"
          root="movement" tag-format="semantics/1.0"
-         xmlns="http://www.w3.org/2001/06/grammar" >
+         xmlns="http://www.w3.org/2001/06/grammar">
 
     <!-- movement rules -->
     <rule id="movement">
@@ -23,27 +23,27 @@
     <!-- low profile movement -->
     <rule id="idle">
         <one-of>
-        <item>idle</item>
-        <item>yield</item>
-        <item>stop</item>
+            <item>idle</item>
+            <item>yield</item>
+            <item>stop</item>
         </one-of>
     </rule>
 
     <rule id="walk">
         <one-of>
-        <item>walk</item>
-        <item>go</item>
-        <item>forward</item>
+            <item>walk</item>
+            <item>go</item>
+            <item>forward</item>
         </one-of>
     </rule>
 
     <!-- high profile movement -->
     <rule id="run">
         <one-of>
-        <item>run</item>
-        <item>sprint</item>
-        <item>faster</item>
+            <item>run</item>
+            <item>sprint</item>
+            <item>faster</item>
         </one-of>
     </rule>
-    
+
 </grammar>
