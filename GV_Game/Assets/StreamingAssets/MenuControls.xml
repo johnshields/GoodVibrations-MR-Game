@@ -79,14 +79,14 @@
     <rule id="resume">
         <one-of>
             <item>resume</item>
-            <item>back</item>
+            <item>back to game</item>
         </one-of>
     </rule>
 
     <rule id="back_main_menu">
         <one-of>
             <item>main menu</item>
-            <item>home</item>
+            <item>go home</item>
         </one-of>
     </rule>
 </grammar>

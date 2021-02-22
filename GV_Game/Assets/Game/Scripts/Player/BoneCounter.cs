@@ -1,7 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
-namespace Game.Scripts
+namespace Game.Scripts.Player
 {
     public class BoneCounter : MonoBehaviour
     {

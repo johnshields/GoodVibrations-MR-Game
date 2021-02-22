@@ -12,7 +12,7 @@ namespace Game.Scripts.Menus
         private GrammarRecognizer _grammarRecognizer;
         private static string _spokenWord = "";
 
-        private void Start()
+        private void Awake()
         {
             // turn volume back up from pause menu interaction
             AudioListener.volume = 1f;

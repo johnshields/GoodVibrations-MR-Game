@@ -3,7 +3,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
-namespace Game.Scripts
+namespace Game.Scripts.Player
 {
     public class DogController : MonoBehaviour
     {

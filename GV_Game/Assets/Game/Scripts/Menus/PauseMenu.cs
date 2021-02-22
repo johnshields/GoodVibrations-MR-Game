@@ -17,7 +17,7 @@ namespace Game.Scripts.Menus
         public GameObject pauseMenu;
         private bool _paused;
 
-        private void Start()
+        private void Awake()
         {
             // set pause menu to false
             pauseMenu.SetActive(false);
@@ -77,11 +77,11 @@ namespace Game.Scripts.Menus
                     PauseGame();
                     break;
                 case "resume":
-                case "back":
+                case "back to game":
                     ResumeGame();
                     break;
                 case "main menu":
-                case "home":
+                case "go home":
                     BackMainMenu();
                     break;
             }
