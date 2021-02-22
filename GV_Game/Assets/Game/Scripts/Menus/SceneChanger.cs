@@ -22,12 +22,10 @@ namespace Game.Scripts.Menus
             _animator.SetTrigger(_fadeOut);
         }
 
-        public static void NextScene ()
+        public static void NextScene()
         {
             // load the next scene
             SceneManager.LoadScene(_nextSceneToLoad);
         }
-        
-        
     }
 }

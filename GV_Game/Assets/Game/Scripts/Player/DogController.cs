@@ -10,7 +10,7 @@ namespace Game.Scripts
         // voice commands
         private GrammarRecognizer _grammarRecognizer;
         private static string _spokenWord = "";
-        
+
         // dog stats
         private Animator _animator;
         [SerializeField] public float lowProfile = 2.0f;
@@ -26,17 +26,17 @@ namespace Game.Scripts
         public Transform cameraTransform;
         private float _yaw;
         private float _pitch;
-        
+
         private void Start()
         {
             // load in grammar xml file
-            _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath, 
+            _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
                 "DogControls.xml"), ConfidenceLevel.Low);
             // start grammar recogniser
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
             Debug.Log("Player Voice Controls loaded...");
-            
+
             // dog animator
             _animator = GetComponent<Animator>();
             // low profile animations
@@ -60,10 +60,11 @@ namespace Game.Scripts
                 // for calling in VoiceCommands
                 _spokenWord = item;
             }
+
             // print word spoken by user
             Debug.Log(message);
         }
-        
+
         private void Update()
         {
             VoiceCommands();
@@ -95,21 +96,21 @@ namespace Game.Scripts
                     break;
             }
         }
-        
+
         private void Idle()
         {
             // stop dog
-            transform.position += new Vector3(0,0,0);
+            transform.position += new Vector3(0, 0, 0);
             // idle animation
             _animator.SetBool(_idleActive, true);
             _animator.SetBool(_walkActive, false);
             _animator.SetBool(_runActive, false);
         }
-        
+
         private void Walk()
         {
             // move dog
-            transform.Translate(0, 0, lowProfile*Time.deltaTime);
+            transform.Translate(0, 0, lowProfile * Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
             // walk animation
@@ -117,11 +118,11 @@ namespace Game.Scripts
             _animator.SetBool(_runActive, false);
             _animator.SetBool(_idleActive, false);
         }
-        
+
         private void Run()
         {
             // move dog
-            transform.Translate(0, 0, highProfile*Time.deltaTime);
+            transform.Translate(0, 0, highProfile * Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
             // run animation

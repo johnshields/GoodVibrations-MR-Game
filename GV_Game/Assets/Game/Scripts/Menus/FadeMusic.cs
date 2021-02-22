@@ -12,7 +12,7 @@ namespace Game.Scripts.Menus
             _fadeOut = Animator.StringToHash("FadeOut");
             _animator = GetComponent<Animator>();
         }
-        
+
         public static void FadeOutMusic()
         {
             // set animation trigger to fade music out

@@ -27,6 +27,9 @@
             <item>
                 <ruleref uri="#resume"/>
             </item>
+            <item>
+                <ruleref uri="#back_main_menu"/>
+            </item>
         </one-of>
     </rule>
 
@@ -77,6 +80,13 @@
         <one-of>
             <item>resume</item>
             <item>back</item>
+        </one-of>
+    </rule>
+
+    <rule id="back_main_menu">
+        <one-of>
+            <item>main menu</item>
+            <item>home</item>
         </one-of>
     </rule>
 </grammar>

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.IO;
 using System.Text;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
 namespace Game.Scripts.Menus
@@ -16,8 +14,11 @@ namespace Game.Scripts.Menus
 
         private void Start()
         {
+            // turn volume back up from pause menu interaction
+            AudioListener.volume = 1f;
+            
             // load in grammar xml file
-            _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath, 
+            _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
                 "MenuControls.xml"), ConfidenceLevel.Low);
             // start grammar recogniser
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
@@ -39,6 +40,7 @@ namespace Game.Scripts.Menus
                 // for calling in VoiceCommands
                 _spokenWord = item;
             }
+
             // print word spoken by user
             Debug.Log(message);
         }
@@ -66,10 +68,10 @@ namespace Game.Scripts.Menus
                     break;
             }
         }
-        
+
         public void StartGame()
         {
-            // Start the game
+            // start the game
             StartCoroutine(NextScene());
         }
 
@@ -81,6 +83,7 @@ namespace Game.Scripts.Menus
 
         private static IEnumerator NextScene()
         {
+            // fade the scene & music out to load next scene
             FadeMusic.FadeOutMusic();
             SceneChanger.FadeToScene();
             yield return new WaitForSeconds(1);

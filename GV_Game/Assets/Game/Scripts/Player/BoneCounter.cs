@@ -12,7 +12,7 @@ namespace Game.Scripts
             // load Player Bones
             bones = PlayerPrefs.GetInt("bones");
         }
-        
+
         private void Awake()
         {
             // reset Bones back to 0
@@ -33,6 +33,5 @@ namespace Game.Scripts
             // and add the updated Bones amount
             boneTxt.text = "BONES: " + bones;
         }
-
     }
 }
