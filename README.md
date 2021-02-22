@@ -39,16 +39,6 @@ Play as a Dog and collect all the bones in the park!
     * Start, Play, Begin or Continue
     * Exit, Quit or Close
 
-
-### Voice commands for Pause Menu
-    * Pause, or Hold - Game
-    * Resume Game
-    * Back to Game
-
-#### To go back to Main Menu
-    * Main Menu
-    * Go Home
-
 ### Voice commands for Dog Movement
     * Walk, Go, Stroll or Wander
     * Run, Jog or Dash
