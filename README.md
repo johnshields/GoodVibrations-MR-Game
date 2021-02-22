@@ -26,13 +26,34 @@ alt="GAME" width="600"/>
 
 
 # About the Game
-Mixed Reality Game that allows the user to control the game by using voice commands, keyboard, and mouse.
+Good Vibrations is a Mixed Reality Game that allows the user to control the game by using voice commands, keyboard, and mouse.
 
 Play as a Dog and collect all the bones in the park!
 
 `Note:` Requires `English (US)` selected for computer speech settings.
 
 ![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
+
+# Controls
+### Voice commands for Main Menu
+    * Start, Play, Begin or Continue
+    * Exit, Quit or Close
+
+
+### Voice commands for Pause Menu
+    * Pause, or Hold - Game
+    * Resume Game
+    * Back to Game
+
+#### To go back to Main Menu
+    * Main Menu
+    * Go Home
+
+### Voice commands for Dog Movement
+    * Walk, Go, Stroll or Wander
+    * Run, Jog or Dash
+    * Idle, Yield, Stop or Halt
+* Turn the Dog using the mouse
 
 ***
 ###### END OF README
