@@ -13,16 +13,6 @@
             <item>
                 <ruleref uri="#exit"/>
             </item>
-            <!-- in game menu -->
-            <item>
-                <ruleref uri="#pause"/>
-            </item>
-            <item>
-                <ruleref uri="#resume"/>
-            </item>
-            <item>
-                <ruleref uri="#back_main_menu"/>
-            </item>
         </one-of>
     </rule>
 
@@ -40,28 +30,6 @@
             <item>exit</item>
             <item>quit</item>
             <item>close</item>
-        </one-of>
-    </rule>
-
-    <!-- in game menu -->
-    <rule id="pause">
-        <one-of>
-            <item>pause game</item>
-            <item>hold game</item>
-        </one-of>
-    </rule>
-
-    <rule id="resume">
-        <one-of>
-            <item>resume game</item>
-            <item>back to game</item>
-        </one-of>
-    </rule>
-
-    <rule id="back_main_menu">
-        <one-of>
-            <item>main menu</item>
-            <item>go home</item>
         </one-of>
     </rule>
 </grammar>

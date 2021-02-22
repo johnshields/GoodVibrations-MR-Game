@@ -13,22 +13,15 @@
  * Start/Play/Continue/Begin
  * Exit/Quit
 
-
-###### 2. In-Game Menu
-  * Pause/Hold
-  * Resume/Back
-  * Main Menu
-
-
-###### 3. Idle Movement
+###### 2. Idle Movement
   * Idle/Yield/Stop/Halt
 
 
-###### 4. Walk Movement
+###### 3. Walk Movement
   * Walk/Go/Forward/Stroll/Wander
 
 
-###### 5. Run Movement
+###### 4. Run Movement
   * Run/Jog/Dash
 
 ###### END OF PLAN

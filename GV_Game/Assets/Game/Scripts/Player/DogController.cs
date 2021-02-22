@@ -27,8 +27,11 @@ namespace Game.Scripts.Player
         private float _yaw;
         private float _pitch;
 
-        private void Start()
+        private void Awake()
         {
+            GetComponent<DogController>().enabled = true;
+            _spokenWord = "";
+
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
                 "DogControls.xml"), ConfidenceLevel.Low);
