@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.IO;
 using System.Text;
+using Game.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
@@ -16,9 +17,14 @@ namespace Game.Scripts.Menus
         // pause menu
         public GameObject pauseMenu;
         private bool _paused;
+        
+        private GameObject _dog;
+
 
         private void Start()
         {
+            _dog = GameObject.Find("Player");
+
             // set pause menu to false
             pauseMenu.SetActive(false);
 
@@ -89,6 +95,9 @@ namespace Game.Scripts.Menus
 
         private void PauseGame()
         {
+            // for disabling mouse player movement
+            _dog.GetComponent<DogController>().enabled = false;
+            // pause game
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             AudioListener.volume = 0f; // pause audio
@@ -97,6 +106,8 @@ namespace Game.Scripts.Menus
 
         public void ResumeGame()
         {
+            _dog.GetComponent<DogController>().enabled = true;
+            // resume game
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
             _paused = false;
