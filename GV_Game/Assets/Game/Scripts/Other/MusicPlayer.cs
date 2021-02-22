@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game.Scripts
+namespace Game.Scripts.Other
 {
     public class MusicPlayer : MonoBehaviour
     {

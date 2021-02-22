@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections;
+using System.IO;
+using System.Text;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Windows.Speech;
+
+namespace Game.Scripts.Menus
+{
+    public class MainMenu : MonoBehaviour
+    {
+        // voice commands
+        private GrammarRecognizer _grammarRecognizer;
+        private static string _spokenWord = "";
+
+        private void Start()
+        {
+            // load in grammar xml file
+            _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath, 
+                "MenuControls.xml"), ConfidenceLevel.Low);
+            // start grammar recogniser
+            _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
+            _grammarRecognizer.Start();
+            Debug.Log("Menu Voice Controls loaded...");
+        }
+
+        private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
+        {
+            var message = new StringBuilder();
+            // read the semantic meanings from the args passed in.
+            var meanings = args.semanticMeanings;
+            // for each to get all the meanings.
+            foreach (var meaning in meanings)
+            {
+                // get the items for xml file
+                var item = meaning.values[0].Trim();
+                message.Append("Word detected: " + item);
+                // for calling in VoiceCommands
+                _spokenWord = item;
+            }
+            // print word spoken by user
+            Debug.Log(message);
+        }
+
+        private void Update()
+        {
+            VoiceCommands();
+        }
+
+        // VoiceCommands - to call functions for menu controls
+        private void VoiceCommands()
+        {
+            switch (_spokenWord)
+            {
+                case "start":
+                case "play":
+                case "begin":
+                case "continue":
+                    StartGame();
+                    break;
+                case "exit":
+                case "quit":
+                case "close":
+                    ExitGame();
+                    break;
+            }
+        }
+        
+        public void StartGame()
+        {
+            // Start the game
+            StartCoroutine(NextScene());
+        }
+
+        public void ExitGame()
+        {
+            // exit the game
+            Application.Quit();
+        }
+
+        private static IEnumerator NextScene()
+        {
+            FadeMusic.FadeOutMusic();
+            SceneChanger.FadeToScene();
+            yield return new WaitForSeconds(1);
+            SceneChanger.NextScene();
+        }
+
+        private void OnApplicationQuit()
+        {
+            if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;
+            _grammarRecognizer.OnPhraseRecognized -= GR_OnPhraseRecognised;
+            _grammarRecognizer.Stop();
+        }
+    }
+}
