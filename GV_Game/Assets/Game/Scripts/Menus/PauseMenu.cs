@@ -12,7 +12,7 @@ namespace Game.Scripts.Menus
         // voice commands
         private GrammarRecognizer _grammarRecognizer;
         private static string _spokenWord = "";
-        
+
         // pause menu
         public GameObject pauseMenu;
         private bool _paused;
@@ -21,7 +21,7 @@ namespace Game.Scripts.Menus
         {
             // set pause menu to false
             pauseMenu.SetActive(false);
-            
+
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
                 "MenuControls.xml"), ConfidenceLevel.Low);
@@ -53,7 +53,7 @@ namespace Game.Scripts.Menus
         private void Update()
         {
             VoiceCommands();
-            
+
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
             if (_paused)
             {
@@ -86,7 +86,7 @@ namespace Game.Scripts.Menus
                     break;
             }
         }
-        
+
         private void PauseGame()
         {
             pauseMenu.SetActive(true);
@@ -94,7 +94,7 @@ namespace Game.Scripts.Menus
             AudioListener.volume = 0f; // pause audio
             _paused = true; // game is paused
         }
-        
+
         public void ResumeGame()
         {
             pauseMenu.SetActive(false);
@@ -102,14 +102,14 @@ namespace Game.Scripts.Menus
             _paused = false;
             AudioListener.volume = 1f;
         }
-        
+
         public void BackMainMenu()
         {
             // to the main menu
-            StartCoroutine(FadeOutMainMenu());           
+            StartCoroutine(FadeOutMainMenu());
             Time.timeScale = 1f;
         }
-        
+
         private static IEnumerator FadeOutMainMenu()
         {
             FadeMusic.FadeOutMusic();
@@ -117,8 +117,8 @@ namespace Game.Scripts.Menus
             yield return new WaitForSeconds(1);
             SceneManager.LoadScene("MainMenuScene");
         }
-        
-        
+
+
         private void OnApplicationQuit()
         {
             if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;

@@ -16,7 +16,7 @@ namespace Game.Scripts.Menus
         {
             // turn volume back up from pause menu interaction
             AudioListener.volume = 1f;
-            
+
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
                 "MenuControls.xml"), ConfidenceLevel.Low);

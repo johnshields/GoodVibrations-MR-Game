@@ -20,7 +20,12 @@ alt="GMIT Logo" width="500" height="200"/>
 | **Module Lecturer**      | Damien Costello |
 
 ***
-# Good Vibrations
+
+<p align="center"><img src="https://user-images.githubusercontent.com/26766163/108714301-4b1cbb00-7511-11eb-88d4-586578282e94.png"
+alt="GAME" width="600"/>
+
+
+# About the Game
 Mixed Reality Game that allows the user to control the game by using voice commands, keyboard, and mouse.
 
 Play as a Dog and collect all the bones in the park!
