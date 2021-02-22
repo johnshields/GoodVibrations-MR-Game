@@ -17,7 +17,7 @@ namespace Game.Scripts.Menus
         public GameObject pauseMenu;
         private bool _paused;
 
-        private void Awake()
+        private void Start()
         {
             // set pause menu to false
             pauseMenu.SetActive(false);
@@ -72,11 +72,11 @@ namespace Game.Scripts.Menus
         {
             switch (_spokenWord)
             {
-                case "pause":
-                case "hold":
+                case "pause game":
+                case "hold game":
                     PauseGame();
                     break;
-                case "resume":
+                case "resume game":
                 case "back to game":
                     ResumeGame();
                     break;

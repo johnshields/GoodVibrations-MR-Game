@@ -6,7 +6,7 @@
   * Park
   * Trees, Grass, flowers, Bushes
   * Dog & Human NPCs
-  * Bone Collectables 
+  * Bone Collectables
 
 ## Speech rules
 ###### 1. Start Menu
@@ -14,26 +14,21 @@
  * Exit/Quit
 
 
-###### 2. Select Dog Menu - 6 Dogs
- * Next/No/Nah/Nope
- * Select/Yes/Yeah
-
-
-###### 3. In-Game Menu
+###### 2. In-Game Menu
   * Pause/Hold
   * Resume/Back
   * Main Menu
 
 
-###### 4. Idle Movement
+###### 3. Idle Movement
   * Idle/Yield/Stop/Halt
 
 
-###### 5. Walk Movement
+###### 4. Walk Movement
   * Walk/Go/Forward/Stroll/Wander
 
 
-###### 6. Run Movement
+###### 5. Run Movement
   * Run/Jog/Dash
 
 ###### END OF PLAN

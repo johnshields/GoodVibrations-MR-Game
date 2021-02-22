@@ -13,13 +13,6 @@
             <item>
                 <ruleref uri="#exit"/>
             </item>
-            <!-- select dog player -->
-            <item>
-                <ruleref uri="#next"/>
-            </item>
-            <item>
-                <ruleref uri="#select"/>
-            </item>
             <!-- in game menu -->
             <item>
                 <ruleref uri="#pause"/>
@@ -50,35 +43,17 @@
         </one-of>
     </rule>
 
-    <!-- select dog player -->
-    <rule id="next">
-        <one-of>
-            <item>next</item>
-            <item>no</item>
-            <item>nah</item>
-            <item>nope</item>
-        </one-of>
-    </rule>
-
-    <rule id="select">
-        <one-of>
-            <item>select</item>
-            <item>yes</item>
-            <item>yeah</item>
-        </one-of>
-    </rule>
-
     <!-- in game menu -->
     <rule id="pause">
         <one-of>
-            <item>pause</item>
-            <item>hold</item>
+            <item>pause game</item>
+            <item>hold game</item>
         </one-of>
     </rule>
 
     <rule id="resume">
         <one-of>
-            <item>resume</item>
+            <item>resume game</item>
             <item>back to game</item>
         </one-of>
     </rule>

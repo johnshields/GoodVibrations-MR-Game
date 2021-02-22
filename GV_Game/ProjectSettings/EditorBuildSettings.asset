@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/MainMenuScene.unity
     guid: 16c935b388c89e148a2307b1b46492f1
   - enabled: 1
-    path: Assets/Game/Scenes/DogSelector.unity
-    guid: 781a6521f44c28d47bf07ca706fd8535
-  - enabled: 1
     path: Assets/Game/Scenes/ParkScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
