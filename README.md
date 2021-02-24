@@ -54,5 +54,9 @@ Play as a Dog and collect all the bones in the park!
 * Turn the Dog using the Mouse
 * Use the Space Bar to Jump
 
+
+* Use your `surroundings` to your advantage!
+* Remember the Dog can jump more accurate when walking!
+
 ***
 ###### END OF README

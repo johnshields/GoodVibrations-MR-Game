@@ -3728,7 +3728,7 @@ RectTransform:
   m_Children:
   - {fileID: 1354402083}
   m_Father: {fileID: 1228419506}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10735,7 +10735,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 950f2277548e54e469d31222ddd8a609, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c78464cdcf4cba440a1cdf4652d676aa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -15945,7 +15945,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208762082}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c78464cdcf4cba440a1cdf4652d676aa, type: 3}
@@ -16229,8 +16229,8 @@ RectTransform:
   - {fileID: 146171854}
   - {fileID: 1653747797}
   - {fileID: 1354248796}
-  - {fileID: 327704847}
   - {fileID: 2098969715}
+  - {fileID: 327704847}
   m_Father: {fileID: 2086339183}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17692,7 +17692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -232, y: 222}
+  m_AnchoredPosition: {x: -232, y: 234}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1354248797
@@ -17708,7 +17708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5660378, g: 0.11480955, b: 0.29188174, a: 1}
+  m_Color: {r: 0.2901961, g: 0.4784314, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -21652,7 +21652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2901961, g: 0.4784314, b: 0.69803923, a: 1}
+  m_Color: {r: 0.15686275, g: 0.17254902, b: 0.20392159, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -27143,12 +27143,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1228419506}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14, y: -53}
-  m_SizeDelta: {x: 600, y: 550}
+  m_AnchoredPosition: {x: 14, y: -46}
+  m_SizeDelta: {x: 600, y: 580}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098969716
 MonoBehaviour:
