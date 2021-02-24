@@ -34,7 +34,6 @@
         <one-of>
             <item>walk</item>
             <item>go</item>
-            <item>forward</item>
             <item>stroll</item>
             <item>wander</item>
         </one-of>

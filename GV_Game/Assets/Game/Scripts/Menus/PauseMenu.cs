@@ -12,8 +12,7 @@ namespace Game.Scripts.Menus
         private bool _paused;
         
         private GameObject _dog;
-
-
+        
         private void Start()
         {
             _dog = GameObject.Find("Player");

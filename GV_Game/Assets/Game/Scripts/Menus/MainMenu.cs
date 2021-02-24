@@ -37,7 +37,7 @@ namespace Game.Scripts.Menus
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("Word detected: " + item);
+                message.Append("Words detected: " + item);
                 // for calling in VoiceCommands
                 _spokenWord = item;
             }

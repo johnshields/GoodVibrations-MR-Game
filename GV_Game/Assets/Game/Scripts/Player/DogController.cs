@@ -59,7 +59,7 @@ namespace Game.Scripts.Player
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("Word detected: " + item);
+                message.Append("Words detected: " + item);
                 // for calling in VoiceCommands
                 _spokenWord = item;
             }
@@ -87,7 +87,6 @@ namespace Game.Scripts.Player
                     break;
                 case "walk":
                 case "go":
-                case "forward":
                 case "stroll":
                 case "wander":
                     Walk();
