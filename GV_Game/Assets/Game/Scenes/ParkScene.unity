@@ -40758,6 +40758,7 @@ MonoBehaviour:
   lowProfile: 1
   highProfile: 3
   rotationSpeed: 4
+  jumpForce: 1.5
   cameraTransform: {fileID: 566033622}
 --- !u!1 &473636724266680579
 GameObject:

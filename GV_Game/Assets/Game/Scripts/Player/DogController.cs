@@ -16,11 +16,16 @@ namespace Game.Scripts.Player
         [SerializeField] public float lowProfile = 2.0f;
         [SerializeField] public float highProfile = 6.0f;
         [SerializeField] public float rotationSpeed = 4.0f;
+        private Rigidbody _bodyPhysics;
+        private Vector3 _jump; 
+        public float jumpForce = 2.0f;
+        private bool _grounded; 
 
         // animator booleans
         private int _idleActive;
         private int _walkActive;
         private int _runActive;
+        private int _jumpActive;
 
         // for camera movement 
         public Transform cameraTransform;
@@ -29,6 +34,8 @@ namespace Game.Scripts.Player
 
         private void Awake()
         {
+            _bodyPhysics = GetComponent<Rigidbody>();
+             _jump = new Vector3(0.0f, 2.0f, 0.0f);
             GetComponent<DogController>().enabled = true;
             _spokenWord = "";
 
@@ -47,6 +54,7 @@ namespace Game.Scripts.Player
             _walkActive = Animator.StringToHash("WalkActive");
             // high profile animations
             _runActive = Animator.StringToHash("RunActive");
+            _jumpActive  = Animator.StringToHash("JumpActive");
         }
 
         private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
@@ -71,6 +79,7 @@ namespace Game.Scripts.Player
         private void Update()
         {
             VoiceCommands();
+            Jump();
             CameraMovement();
         }
 
@@ -131,6 +140,24 @@ namespace Game.Scripts.Player
             _animator.SetBool(_runActive, true);
             _animator.SetBool(_walkActive, false);
             _animator.SetBool(_idleActive, false);
+        }
+
+        private void OnCollisionStay(){
+            _grounded = true;
+        }
+
+        private void Jump()
+        {
+            if(Input.GetKeyDown(KeyCode.Space) && _grounded){
+
+                _bodyPhysics.AddForce(_jump * jumpForce, ForceMode.Impulse);
+                _animator.SetBool(_jumpActive, true);
+                _grounded = false;
+            }
+            else
+            {
+                _animator.SetBool(_jumpActive, false);
+            }
         }
 
         private void CameraMovement()

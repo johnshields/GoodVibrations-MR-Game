@@ -10,7 +10,7 @@ namespace Game.Scripts.Menus
     {
         // voice commands
         private GrammarRecognizer _grammarRecognizer;
-        private static string _spokenWord = "";
+        private string _spokenWord = "";
 
         private void Awake()
         {
@@ -27,7 +27,7 @@ namespace Game.Scripts.Menus
             Debug.Log("Menu Voice Controls loaded...");
         }
 
-        private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
+        private void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
         {
             var message = new StringBuilder();
             // read the semantic meanings from the args passed in.
