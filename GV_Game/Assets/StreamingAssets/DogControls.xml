@@ -23,28 +23,28 @@
     <!-- low profile movement -->
     <rule id="idle">
         <one-of>
-            <item>idle</item>
-            <item>yield</item>
-            <item>stop</item>
-            <item>halt</item>
+            <item>idle dog</item>
+            <item>yield dog</item>
+            <item>stop dog</item>
+            <item>halt dog</item>
         </one-of>
     </rule>
 
     <rule id="walk">
         <one-of>
-            <item>walk</item>
-            <item>go</item>
-            <item>stroll</item>
-            <item>wander</item>
+            <item>walk dog</item>
+            <item>go dog</item>
+            <item>stroll dog</item>
+            <item>wander dog</item>
         </one-of>
     </rule>
 
     <!-- high profile movement -->
     <rule id="run">
         <one-of>
-            <item>run</item>
-            <item>jog</item>
-            <item>dash</item>
+            <item>run dog</item>
+            <item>jog dog</item>
+            <item>dash dog</item>
         </one-of>
     </rule>
     

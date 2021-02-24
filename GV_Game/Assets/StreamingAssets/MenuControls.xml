@@ -19,17 +19,17 @@
     <!-- main menu -->
     <rule id="start">
         <one-of>
-            <item>start</item>
-            <item>play</item>
-            <item>begin</item>
-            <item>continue</item>
+            <item>start game</item>
+            <item>play game</item>
+            <item>begin game</item>
+            <item>continue game</item>
         </one-of>
     </rule>
     <rule id="exit">
         <one-of>
-            <item>exit</item>
-            <item>quit</item>
-            <item>close</item>
+            <item>exit game</item>
+            <item>quit game</item>
+            <item>close game</item>
         </one-of>
     </rule>
 </grammar>

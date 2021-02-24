@@ -88,21 +88,21 @@ namespace Game.Scripts.Player
         {
             switch (_spokenWord)
             {
-                case "idle":
-                case "yield":
-                case "stop":
-                case "halt":
+                case "idle dog":
+                case "yield dog":
+                case "stop dog":
+                case "halt dog":
                     Idle();
                     break;
-                case "walk":
-                case "go":
-                case "stroll":
-                case "wander":
+                case "walk dog":
+                case "go dog":
+                case "stroll dog":
+                case "wander dog":
                     Walk();
                     break;
-                case "run":
-                case "jog":
-                case "dash":
+                case "run dog":
+                case "jog dog":
+                case "dash dog":
                     Run();
                     break;
             }

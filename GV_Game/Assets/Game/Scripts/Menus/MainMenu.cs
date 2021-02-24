@@ -56,15 +56,15 @@ namespace Game.Scripts.Menus
         {
             switch (_spokenWord)
             {
-                case "start":
-                case "play":
-                case "begin":
-                case "continue":
+                case "start game":
+                case "play game":
+                case "begin game":
+                case "continue game":
                     StartGame();
                     break;
-                case "exit":
-                case "quit":
-                case "close":
+                case "exit game":
+                case "quit game":
+                case "close game":
                     ExitGame();
                     break;
             }
