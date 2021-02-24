@@ -15,14 +15,18 @@ namespace Game.Scripts.Menus
         
         private void Start()
         {
+            // find dog
             _dog = GameObject.Find("Player");
 
+            // turn off cursor
+            Cursor.visible = false;
             // set pause menu to false
             pauseMenu.SetActive(false);
         }
 
         private void Update()
         {
+
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
             if (_paused)
             {
@@ -42,7 +46,8 @@ namespace Game.Scripts.Menus
             _dog.GetComponent<DogController>().enabled = false;
             // pause game
             pauseMenu.SetActive(true);
-            Time.timeScale = 0f;
+            Cursor.visible = true; // turn on cursor
+            Time.timeScale = 0f; // stop time
             AudioListener.volume = 0f; // pause audio
             _paused = true; // game is paused
         }
@@ -53,9 +58,10 @@ namespace Game.Scripts.Menus
             _dog.GetComponent<DogController>().enabled = true;
             // resume game
             pauseMenu.SetActive(false);
-            Time.timeScale = 1f;
-            _paused = false;
-            AudioListener.volume = 1f;
+            Cursor.visible = false;  // turn off cursor
+            Time.timeScale = 1f; // resume time
+            AudioListener.volume = 1f; // resume volume
+            _paused = false; // game is unpaused
         }
 
         public void BackMainMenu()
@@ -65,6 +71,7 @@ namespace Game.Scripts.Menus
             Time.timeScale = 1f;
         }
 
+        // fade the music & scene out to main menu
         private static IEnumerator FadeOutMainMenu()
         {
             FadeMusic.FadeOutMusic();

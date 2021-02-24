@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
 
 namespace Game.Scripts.Menus
@@ -14,6 +15,9 @@ namespace Game.Scripts.Menus
 
         private void Awake()
         {
+            // turn cursor on
+            Cursor.visible = true;
+            
             // turn volume back up from pause menu interaction
             AudioListener.volume = 1f;
             
@@ -22,7 +26,7 @@ namespace Game.Scripts.Menus
 
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
-                "MenuControls.xml"), ConfidenceLevel.Low);
+                "MainMenuControls.xml"), ConfidenceLevel.Low);
             // start grammar recogniser
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
@@ -78,6 +82,12 @@ namespace Game.Scripts.Menus
         public void StartGame()
         {
             // start the game
+            StartCoroutine(PlayGame());
+        }
+        
+        public void Controls()
+        {
+            // to controls menu
             StartCoroutine(NextScene());
         }
 
@@ -87,13 +97,22 @@ namespace Game.Scripts.Menus
             Application.Quit();
         }
 
-        // fade the scene & music out and load next scene
+        // fade the music & scene out and load next scene
         private static IEnumerator NextScene()
         {
             FadeMusic.FadeOutMusic();
             SceneChanger.FadeToScene();
             yield return new WaitForSeconds(1);
             SceneChanger.NextScene();
+        }
+        
+        // fade the music & scene out and load park scene
+        private static IEnumerator PlayGame()
+        {
+            FadeMusic.FadeOutMusic();
+            SceneChanger.FadeToScene();
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene("ParkScene");
         }
 
         // stop the Grammar Recognizer if game is not running

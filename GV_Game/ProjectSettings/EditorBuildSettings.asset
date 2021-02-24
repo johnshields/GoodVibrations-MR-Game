@@ -7,6 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Game/Scenes/MainMenuScene.unity
+    guid: fb87536d17108984a953c62ebf20d3af
+  - enabled: 1
+    path: Assets/Game/Scenes/Controls.unity
     guid: 16c935b388c89e148a2307b1b46492f1
   - enabled: 1
     path: Assets/Game/Scenes/ParkScene.unity
