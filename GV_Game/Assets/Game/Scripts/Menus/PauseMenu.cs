@@ -49,6 +49,7 @@ namespace Game.Scripts.Menus
 
         public void ResumeGame()
         {
+            // for enabling mouse player movement
             _dog.GetComponent<DogController>().enabled = true;
             // resume game
             pauseMenu.SetActive(false);

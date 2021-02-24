@@ -56,12 +56,14 @@ namespace Game.Scripts.Menus
         {
             switch (_spokenWord)
             {
+                // start items
                 case "start game":
                 case "play game":
                 case "begin game":
                 case "continue game":
                     StartGame();
                     break;
+                // exit items
                 case "exit game":
                 case "quit game":
                 case "close game":
@@ -82,15 +84,16 @@ namespace Game.Scripts.Menus
             Application.Quit();
         }
 
+        // fade the scene & music out and load next scene
         private static IEnumerator NextScene()
         {
-            // fade the scene & music out to load next scene
             FadeMusic.FadeOutMusic();
             SceneChanger.FadeToScene();
             yield return new WaitForSeconds(1);
             SceneChanger.NextScene();
         }
 
+        // stop the Grammar Recognizer if game is not running
         private void OnApplicationQuit()
         {
             if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;

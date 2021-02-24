@@ -13,8 +13,8 @@ namespace Game.Scripts.Player
 
         // dog stats
         private Animator _animator;
-        [SerializeField] public float lowProfile = 2.0f;
-        [SerializeField] public float highProfile = 6.0f;
+        [SerializeField] public float lowProfile = 1f;
+        [SerializeField] public float highProfile = 3f;
         [SerializeField] public float rotationSpeed = 4.0f;
         private Rigidbody _bodyPhysics;
         private Vector3 _jump; 
@@ -34,9 +34,7 @@ namespace Game.Scripts.Player
 
         private void Awake()
         {
-            _bodyPhysics = GetComponent<Rigidbody>();
-             _jump = new Vector3(0.0f, 2.0f, 0.0f);
-            GetComponent<DogController>().enabled = true;
+            // reset the spoken word to nothing
             _spokenWord = "";
 
             // load in grammar xml file
@@ -46,6 +44,14 @@ namespace Game.Scripts.Player
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
             Debug.Log("Player Voice Controls loaded...");
+            
+            // for enabling mouse player movement when loaded back from the
+            // main menu after going back to main menu from pause menu
+            GetComponent<DogController>().enabled = true;
+            
+            // jump
+            _bodyPhysics = GetComponent<Rigidbody>();
+            _jump = new Vector3(0.0f, 2.0f, 0.0f);
 
             // dog animator
             _animator = GetComponent<Animator>();
@@ -60,9 +66,9 @@ namespace Game.Scripts.Player
         private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
         {
             var message = new StringBuilder();
-            // read the semantic meanings from the args passed in.
+            // read the semantic meanings from the args passed in
             var meanings = args.semanticMeanings;
-            // for each to get all the meanings.
+            // for each to get all the meanings
             foreach (var meaning in meanings)
             {
                 // get the items for xml file
@@ -88,18 +94,21 @@ namespace Game.Scripts.Player
         {
             switch (_spokenWord)
             {
+                // idle items
                 case "idle dog":
                 case "yield dog":
                 case "stop dog":
                 case "halt dog":
                     Idle();
                     break;
+                // walk items
                 case "walk dog":
                 case "go dog":
                 case "stroll dog":
                 case "wander dog":
                     Walk();
                     break;
+                // run items
                 case "run dog":
                 case "jog dog":
                 case "dash dog":
@@ -142,20 +151,22 @@ namespace Game.Scripts.Player
             _animator.SetBool(_idleActive, false);
         }
 
+        // anything the dog collides with make dog grounded
         private void OnCollisionEnter(){
             _grounded = true;
         }
 
         private void Jump()
         {
+            // jump if dog is grounded
             if(Input.GetKeyDown(KeyCode.Space) && _grounded){
-
                 _bodyPhysics.AddForce(_jump * jumpForce, ForceMode.Impulse);
+                _grounded = false;
+                // jump animation
                 _animator.SetBool(_jumpActive, true);
                 _animator.SetBool(_runActive, false);
                 _animator.SetBool(_walkActive, false);
                 _animator.SetBool(_idleActive, false);
-                _grounded = false;
             }
             else
             {
@@ -172,6 +183,7 @@ namespace Game.Scripts.Player
             cameraTransform.eulerAngles = new Vector3(_pitch, _yaw, 0);
         }
 
+        // stop the Grammar Recognizer if game is not running
         private void OnApplicationQuit()
         {
             if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;
