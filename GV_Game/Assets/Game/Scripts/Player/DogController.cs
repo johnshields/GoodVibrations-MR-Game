@@ -142,7 +142,7 @@ namespace Game.Scripts.Player
             _animator.SetBool(_idleActive, false);
         }
 
-        private void OnCollisionStay(){
+        private void OnCollisionEnter(){
             _grounded = true;
         }
 
@@ -152,6 +152,9 @@ namespace Game.Scripts.Player
 
                 _bodyPhysics.AddForce(_jump * jumpForce, ForceMode.Impulse);
                 _animator.SetBool(_jumpActive, true);
+                _animator.SetBool(_runActive, false);
+                _animator.SetBool(_walkActive, false);
+                _animator.SetBool(_idleActive, false);
                 _grounded = false;
             }
             else

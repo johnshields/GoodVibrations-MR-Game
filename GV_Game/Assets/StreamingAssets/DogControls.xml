@@ -21,6 +21,7 @@
     </rule>
 
     <!-- low profile movement -->
+    <!-- idle rule -->
     <rule id="idle">
         <one-of>
             <item>idle dog</item>
@@ -30,6 +31,7 @@
         </one-of>
     </rule>
 
+    <!-- walk rule -->
     <rule id="walk">
         <one-of>
             <item>walk dog</item>
@@ -40,6 +42,7 @@
     </rule>
 
     <!-- high profile movement -->
+    <!-- run rule -->
     <rule id="run">
         <one-of>
             <item>run dog</item>

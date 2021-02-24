@@ -3,7 +3,7 @@
          root="menus" tag-format="semantics/1.0"
          xmlns="http://www.w3.org/2001/06/grammar" >
 
-    <!-- menu rules -->
+    <!-- main menu  -->
     <rule id="menus">
         <one-of>
             <!-- main menu -->
@@ -16,7 +16,7 @@
         </one-of>
     </rule>
 
-    <!-- main menu -->
+    <!-- start game rule -->
     <rule id="start">
         <one-of>
             <item>start game</item>
@@ -25,6 +25,8 @@
             <item>continue game</item>
         </one-of>
     </rule>
+
+    <!-- exit game rule -->
     <rule id="exit">
         <one-of>
             <item>exit game</item>

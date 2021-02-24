@@ -35,13 +35,15 @@ Play as a Dog and collect all the bones in the park!
 ![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
 
 # Controls :loudspeaker:
-### Voice commands for Main Menu
-* Follow each command with "game"
+## Voice commands for Main Menu
+* Follow each command with ``"game"``
+
     * Start, Play, Begin or Continue
     * Exit, Quit or Close
 
-### Voice commands for Dog Movement
-* Follow each command with "dog"
+## Voice commands for Dog Movement
+* Follow each command with ``"dog"``
+
     * Walk, Go, Stroll or Wander
     * Run, Jog or Dash
     * Idle, Yield, Stop or Halt
