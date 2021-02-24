@@ -16,6 +16,8 @@ namespace Game.Scripts.Menus
         {
             // turn volume back up from pause menu interaction
             AudioListener.volume = 1f;
+            
+            // reset spoken word
             _spokenWord = "";
 
             // load in grammar xml file
@@ -48,6 +50,7 @@ namespace Game.Scripts.Menus
 
         private void Update()
         {
+            // call command for menu controls
             VoiceCommands();
         }
 

@@ -12,14 +12,15 @@ namespace Game.Scripts.Player
         private static string _spokenWord = "";
 
         // dog stats
-        private Animator _animator;
         [SerializeField] public float lowProfile = 1f;
         [SerializeField] public float highProfile = 3f;
         [SerializeField] public float rotationSpeed = 4.0f;
+        [SerializeField] public float jumpForce = 2.0f;
+        private Vector3 _jump;
+        private bool _grounded;
+        // dog components
         private Rigidbody _bodyPhysics;
-        private Vector3 _jump; 
-        public float jumpForce = 2.0f;
-        private bool _grounded; 
+        private Animator _animator;
 
         // animator booleans
         private int _idleActive;
@@ -49,7 +50,7 @@ namespace Game.Scripts.Player
             // main menu after going back to main menu from pause menu
             GetComponent<DogController>().enabled = true;
             
-            // jump
+            // for jumping
             _bodyPhysics = GetComponent<Rigidbody>();
             _jump = new Vector3(0.0f, 2.0f, 0.0f);
 
@@ -84,6 +85,7 @@ namespace Game.Scripts.Player
 
         private void Update()
         {
+            // call necessary commands for movement
             VoiceCommands();
             Jump();
             CameraMovement();
