@@ -16,7 +16,6 @@ namespace Game.Scripts.Player
         [SerializeField] public float highProfile = 3f;
         [SerializeField] public float rotationSpeed = 4.0f;
         [SerializeField] public float jumpForce = 2.0f;
-        private Vector3 _jump;
         private bool _grounded;
         // dog components
         private Rigidbody _bodyPhysics;
@@ -52,7 +51,6 @@ namespace Game.Scripts.Player
             
             // for jumping
             _bodyPhysics = GetComponent<Rigidbody>();
-            _jump = new Vector3(0.0f, 2.0f, 0.0f);
 
             // dog animator
             _animator = GetComponent<Animator>();
@@ -162,7 +160,7 @@ namespace Game.Scripts.Player
         {
             // jump if dog is grounded
             if(Input.GetKeyDown(KeyCode.Space) && _grounded){
-                _bodyPhysics.AddForce(_jump * jumpForce, ForceMode.Impulse);
+                _bodyPhysics.velocity = transform.TransformDirection(0 , jumpForce, 1);
                 _grounded = false;
                 // jump animation
                 _animator.SetBool(_jumpActive, true);

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game.Scripts.Player
 {
@@ -6,6 +7,16 @@ namespace Game.Scripts.Player
     {
         [SerializeField] public AudioClip pickupSound;
         [SerializeField] public AudioClip bark;
+
+        private Component _boneCounter;
+        private GameObject _dog;
+
+
+        private void Start()
+        {
+            _boneCounter = GameObject.Find("Player").GetComponent<BoneCounter>();
+            _dog = GameObject.Find("Player");
+        }
 
         private void Update()
         {
@@ -15,14 +26,18 @@ namespace Game.Scripts.Player
 
         private void OnTriggerEnter(Collider other)
         {
-            var position = transform.position;
-            // pickup sounds
-            AudioSource.PlayClipAtPoint(pickupSound, position);
-            AudioSource.PlayClipAtPoint(bark, position);
-            // destroy Bone
-            Destroy(gameObject);
-            // add to the Bone Counter
-            other.GetComponent<BoneCounter>().bones += 1;
+            // only detect collisions from player
+            if (other.gameObject == _dog)
+            {
+                var position = transform.position;
+                // pickup sounds
+                AudioSource.PlayClipAtPoint(pickupSound, position);
+                AudioSource.PlayClipAtPoint(bark, position);
+                // destroy Bone
+                Destroy(gameObject);
+                // add to the Bone Counter
+                _boneCounter.GetComponent<BoneCounter>().bones += 1;
+            }
         }
     }
 }
