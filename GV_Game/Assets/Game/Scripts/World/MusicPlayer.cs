@@ -6,12 +6,17 @@ namespace Game.Scripts.World
     public class MusicPlayer : MonoBehaviour
     {
         public AudioClip[] tunes;
+        private Component _musicPlayer;
         private AudioSource _audioSource;
 
         private void Awake()
         {
             // find music player
+            _musicPlayer = GameObject.Find("Music Player").GetComponent<MusicPlayer>();
             _audioSource = GameObject.Find("Music Player").GetComponent<AudioSource>();
+            _musicPlayer.GetComponent<MusicPlayer>().enabled = true;
+            _audioSource.GetComponent<AudioSource>().enabled = true;
+            
         }
 
         private void Update()

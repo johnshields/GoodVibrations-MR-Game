@@ -34,7 +34,7 @@ Play as a Dog and collect all the bones in the park!
 
 ![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
 
-### [Download Latest Build](https://developer.cloud.unity3d.com/share/share.html?shareId=WySr2pj9nI) ``Still in Development``
+### [Download Latest Build](https://developer.cloud.unity3d.com/share/share.html?shareId=ZJ_ubtMsnI) ``Still in Development``
 
 # Controls :loudspeaker:
 ## Main Menu
@@ -44,8 +44,8 @@ Play as a Dog and collect all the bones in the park!
     * Exit, Quit or Close
 
 
-## In-Game 
-* Follow each of these voice command with ``"dog"``
+## In-Game
+* Follow each of these voice commands with ``"dog"``
 
     * Walk, Go, Stroll or Wander
     * Run, Jog or Dash

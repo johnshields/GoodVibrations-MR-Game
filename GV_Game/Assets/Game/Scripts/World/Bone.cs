@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Game.Scripts.Player;
 using UnityEngine;
 
-namespace Game.Scripts.Player
+namespace Game.Scripts.World
 {
     public class Bone : MonoBehaviour
     {

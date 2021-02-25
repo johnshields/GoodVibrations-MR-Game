@@ -18,8 +18,9 @@ namespace Game.Scripts.Menus
             // turn cursor on
             Cursor.visible = true;
             
-            // turn volume back up from pause menu interaction
+            // turn volume & time back on from in-game menus interaction
             AudioListener.volume = 1f;
+            Time.timeScale = 1f;
             
             // reset spoken word
             _spokenWord = "";
@@ -115,7 +116,7 @@ namespace Game.Scripts.Menus
             SceneManager.LoadScene("ParkScene");
         }
 
-        // stop the Grammar Recognizer if game is not running
+        /// stop the Grammar Recognizer if there is no input
         private void OnApplicationQuit()
         {
             if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;

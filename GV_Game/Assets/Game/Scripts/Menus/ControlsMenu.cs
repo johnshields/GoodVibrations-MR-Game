@@ -12,7 +12,6 @@ namespace Game.Scripts.Menus
         {
             // to the main menu
             StartCoroutine(FadeOutMainMenu());
-            Time.timeScale = 1f;
         }
 
         // fade the music & scene out to main menu

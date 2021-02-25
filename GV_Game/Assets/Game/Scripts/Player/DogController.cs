@@ -183,7 +183,7 @@ namespace Game.Scripts.Player
             cameraTransform.eulerAngles = new Vector3(_pitch, _yaw, 0);
         }
 
-        // stop the Grammar Recognizer if game is not running
+        // stop the Grammar Recognizer if there is no input
         private void OnApplicationQuit()
         {
             if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;

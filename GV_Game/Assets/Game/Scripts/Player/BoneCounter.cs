@@ -6,9 +6,11 @@ namespace Game.Scripts.Player
     public class BoneCounter : MonoBehaviour
     {
         public int bones;
+        private GameObject _boneCounter;
 
         private void Start()
         {
+            _boneCounter = GameObject.Find("CounterCanvas/Text");
             // load Player Bones
             bones = PlayerPrefs.GetInt("bones");
         }
@@ -29,9 +31,11 @@ namespace Game.Scripts.Player
         private void OnGUI()
         {
             // find Bones Counter
-            var boneTxt = GameObject.Find("CounterCanvas/Text").GetComponent<Text>();
+            var boneTxt = _boneCounter.GetComponent<Text>();
             // and add the updated Bones amount
             boneTxt.text = "BONES: " + bones;
         }
+
+ 
     }
 }
