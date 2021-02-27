@@ -9,19 +9,21 @@
   * Bone Collectables
 
 ## Speech rules
-###### 1. Start Menu
+###### Start Menu
  * Start/Play/Continue/Begin
  * Exit/Quit
 
-###### 2. Idle Movement
+###### Idle Movement
   * Idle/Yield/Stop/Halt
 
+###### Sit Movement
+  * Sit/Rest
 
-###### 3. Walk Movement
+###### Walk Movement
   * Walk/Go/Stroll/Wander
 
 
-###### 4. Run Movement
+###### Run Movement
   * Run/Jog/Dash
 
 ###### END OF PLAN

@@ -26,6 +26,7 @@ namespace Game.Scripts.Player
         private int _walkActive;
         private int _runActive;
         private int _jumpActive;
+        private int _sitActive;
 
         // for camera movement 
         public Transform cameraTransform;
@@ -57,6 +58,7 @@ namespace Game.Scripts.Player
             // low profile animations
             _idleActive = Animator.StringToHash("IdleActive");
             _walkActive = Animator.StringToHash("WalkActive");
+            _sitActive  = Animator.StringToHash("SitActive");
             // high profile animations
             _runActive = Animator.StringToHash("RunActive");
             _jumpActive  = Animator.StringToHash("JumpActive");
@@ -101,6 +103,11 @@ namespace Game.Scripts.Player
                 case "halt dog":
                     Idle();
                     break;
+                // sit items
+                case "sit dog":
+                case "rest dog":
+                    Sit();
+                    break;
                 // walk items
                 case "walk dog":
                 case "go dog":
@@ -125,6 +132,7 @@ namespace Game.Scripts.Player
             _animator.SetBool(_idleActive, true);
             _animator.SetBool(_walkActive, false);
             _animator.SetBool(_runActive, false);
+            _animator.SetBool(_sitActive, false);
         }
 
         private void Walk()
@@ -137,6 +145,7 @@ namespace Game.Scripts.Player
             _animator.SetBool(_walkActive, true);
             _animator.SetBool(_runActive, false);
             _animator.SetBool(_idleActive, false);
+            _animator.SetBool(_sitActive, false);
         }
 
         private void Run()
@@ -149,9 +158,10 @@ namespace Game.Scripts.Player
             _animator.SetBool(_runActive, true);
             _animator.SetBool(_walkActive, false);
             _animator.SetBool(_idleActive, false);
+            _animator.SetBool(_sitActive, false);
         }
 
-        // anything the dog collides with make dog grounded
+        // anything the dog collides with make the dog grounded
         private void OnCollisionEnter(){
             _grounded = true;
         }
@@ -167,11 +177,23 @@ namespace Game.Scripts.Player
                 _animator.SetBool(_runActive, false);
                 _animator.SetBool(_walkActive, false);
                 _animator.SetBool(_idleActive, false);
+                _animator.SetBool(_sitActive, false);
             }
             else
             {
                 _animator.SetBool(_jumpActive, false);
             }
+        }
+        
+        private void Sit()
+        {
+            // stop dog
+            transform.position += new Vector3(0, 0, 0);
+            // sit animation
+            _animator.SetBool(_sitActive, true);
+            _animator.SetBool(_idleActive, false);
+            _animator.SetBool(_walkActive, false);
+            _animator.SetBool(_runActive, false);
         }
 
         private void CameraMovement()

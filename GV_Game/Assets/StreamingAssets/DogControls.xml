@@ -11,6 +11,9 @@
                 <ruleref uri="#idle"/>
             </item>
             <item>
+                <ruleref uri="#sit"/>
+            </item>
+            <item>
                 <ruleref uri="#walk"/>
             </item>
             <!-- high profile movement -->
@@ -28,6 +31,14 @@
             <item>yield dog</item>
             <item>stop dog</item>
             <item>halt dog</item>
+        </one-of>
+    </rule>
+
+    <!-- sit rule -->
+    <rule id="sit">
+        <one-of>
+            <item>sit dog</item>
+            <item>rest dog</item>
         </one-of>
     </rule>
 
@@ -50,5 +61,4 @@
             <item>dash dog</item>
         </one-of>
     </rule>
-    
 </grammar>
