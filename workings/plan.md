@@ -18,7 +18,7 @@
 
 
 ###### 3. Walk Movement
-  * Walk/Go/Forward/Stroll/Wander
+  * Walk/Go/Stroll/Wander
 
 
 ###### 4. Run Movement
