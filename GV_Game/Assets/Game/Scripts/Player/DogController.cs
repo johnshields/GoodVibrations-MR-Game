@@ -174,10 +174,10 @@ namespace Game.Scripts.Player
                 _grounded = false;
                 // jump animation
                 _animator.SetBool(_jumpActive, true);
+                _animator.SetBool(_sitActive, false);
                 _animator.SetBool(_runActive, false);
                 _animator.SetBool(_walkActive, false);
                 _animator.SetBool(_idleActive, false);
-                _animator.SetBool(_sitActive, false);
             }
             else
             {
