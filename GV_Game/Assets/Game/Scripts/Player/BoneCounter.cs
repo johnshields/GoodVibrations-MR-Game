@@ -23,7 +23,7 @@ namespace Game.Scripts.Player
 
         private void Awake()
         {
-            // reset Bones back to 0
+            // set/reset Bones to 0
             PlayerPrefs.SetInt("bones", 0);
         }
 
@@ -32,13 +32,12 @@ namespace Game.Scripts.Player
             // save Bones to Player
             PlayerPrefs.SetInt("bones", bones);
         }
-
-        // display Bone Counter
+        
         private void OnGUI()
         {
-            // find Bones Counter & add the updated Bones amount
-            var bonesUI = _boneCounter.GetComponent<Text>();
-            bonesUI.text = "BONES: " + bones;
+            // Add the updated Bones amount to BoneCounter
+            var counterUI = _boneCounter.GetComponent<Text>();
+            counterUI.text = "BONES: " + bones;
         }
     }
 }
