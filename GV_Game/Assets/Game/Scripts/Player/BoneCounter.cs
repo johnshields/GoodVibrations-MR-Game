@@ -1,6 +1,12 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
+/*
+ * John Shields - G00348436
+ * BoneCounter
+ * 
+ * For Saving Bones to Player Prefs & displaying the collected Bones in game.
+*/
 namespace Game.Scripts.Player
 {
     public class BoneCounter : MonoBehaviour
@@ -10,8 +16,8 @@ namespace Game.Scripts.Player
 
         private void Start()
         {
+            // find BoneCounter & load Player Bones
             _boneCounter = GameObject.Find("CounterCanvas/Text");
-            // load Player Bones
             bones = PlayerPrefs.GetInt("bones");
         }
 
@@ -30,12 +36,9 @@ namespace Game.Scripts.Player
         // display Bone Counter
         private void OnGUI()
         {
-            // find Bones Counter
-            var boneTxt = _boneCounter.GetComponent<Text>();
-            // and add the updated Bones amount
-            boneTxt.text = "BONES: " + bones;
+            // find Bones Counter & add the updated Bones amount
+            var bonesUI = _boneCounter.GetComponent<Text>();
+            bonesUI.text = "BONES: " + bones;
         }
-
- 
     }
 }

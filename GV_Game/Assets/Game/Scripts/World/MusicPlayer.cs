@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
+/*
+ * John Shields - G00348436
+ * MusicPlayer
+ *
+ * Uses an Audio Source to shuffle and play music from a playlist array of 11 songs.
+*/
 namespace Game.Scripts.World
 {
     public class MusicPlayer : MonoBehaviour
     {
-        public AudioClip[] tunes;
+        public AudioClip[] playlist;
         private Component _musicPlayer;
         private AudioSource _audioSource;
 
@@ -21,12 +27,10 @@ namespace Game.Scripts.World
 
         private void Update()
         {
-            // if the audio source is not playing pick a random tune to play
-            if (!_audioSource.isPlaying)
-            {
-                _audioSource.clip = tunes[Random.Range(0, tunes.Length)];
-                _audioSource.PlayOneShot(_audioSource.clip);
-            }
+            // pick a random song to play from the audio source
+            if (_audioSource.isPlaying) return;
+            _audioSource.clip = playlist[Random.Range(0, playlist.Length)];
+            _audioSource.PlayOneShot(_audioSource.clip);
         }
     }
 }

@@ -5,6 +5,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
 
+/*
+ * John Shields - G00348436
+ * MainMenu
+ * 
+ * For UI Buttons and Voice Commands to Start and Exit the Game.
+ * Plus UI Button to go to Controls Menu.
+*/
 namespace Game.Scripts.Menus
 {
     public class MainMenu : MonoBehaviour
@@ -15,14 +22,12 @@ namespace Game.Scripts.Menus
 
         private void Awake()
         {
-            // turn cursor on
+            // turn cursor, volume & time back on from in-game menus interaction
             Cursor.visible = true;
-            
-            // turn volume & time back on from in-game menus interaction
             AudioListener.volume = 1f;
             Time.timeScale = 1f;
             
-            // reset spoken word
+            // reset spoken word as they can carry over from Park Scene
             _spokenWord = "";
 
             // load in grammar xml file
@@ -31,37 +36,31 @@ namespace Game.Scripts.Menus
             // start grammar recogniser
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
-            Debug.Log("Menu Voice Controls loaded...");
+            print("[INFO] Menu Voice Controls loaded...");
         }
 
         private void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
         {
             var message = new StringBuilder();
-            // read the semantic meanings from the args passed in.
+            // read the semantic meanings from the args passed in
             var meanings = args.semanticMeanings;
-            // for each to get all the meanings.
+            // for each to get all the meanings
             foreach (var meaning in meanings)
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("Words detected: " + item);
-                // for calling in VoiceCommands
+                message.Append("[INFO] Words detected: " + item);
+                // for calling in Update
                 _spokenWord = item;
             }
 
             // print word spoken by user
-            Debug.Log(message);
+            print(message);
         }
-
+        
         private void Update()
         {
-            // call command for menu controls
-            VoiceCommands();
-        }
-
-        // VoiceCommands - to call functions for menu controls
-        private void VoiceCommands()
-        {
+            // call functions for menu controls
             switch (_spokenWord)
             {
                 // start items
@@ -80,21 +79,20 @@ namespace Game.Scripts.Menus
             }
         }
 
+
+        // menu buttons/commands
         public void StartGame()
         {
-            // start the game
             StartCoroutine(PlayGame());
         }
         
         public void Controls()
         {
-            // to controls menu
             StartCoroutine(NextScene());
         }
 
         public void ExitGame()
         {
-            // exit the game
             Application.Quit();
         }
 

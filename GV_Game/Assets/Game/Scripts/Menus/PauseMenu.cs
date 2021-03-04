@@ -3,30 +3,31 @@ using Game.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * John Shields - G00348436
+ * PauseMenu
+ * 
+ * Pause the game if pause button is pressed plus buttons to resume game and go back to Main Menu.
+*/
 namespace Game.Scripts.Menus
 {
     public class PauseMenu : MonoBehaviour
     {
-        // pause menu
+        // Pause Menu & Player
         public GameObject pauseMenu;
         private bool _paused;
-        
         private GameObject _dog;
         
         private void Start()
         {
-            // find dog
+            // find Player, turn off cursor & set pause menu to false
             _dog = GameObject.Find("Player");
-
-            // turn off cursor
             Cursor.visible = false;
-            // set pause menu to false
             pauseMenu.SetActive(false);
         }
 
         private void Update()
         {
-
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
             if (_paused)
             {
@@ -48,7 +49,6 @@ namespace Game.Scripts.Menus
             pauseMenu.SetActive(true);
             Cursor.visible = true; // turn on cursor
             Time.timeScale = 0f; // stop time
-            AudioListener.volume = 0f; // pause audio
             _paused = true; // game is paused
         }
 
@@ -60,7 +60,6 @@ namespace Game.Scripts.Menus
             pauseMenu.SetActive(false);
             Cursor.visible = false;  // turn off cursor
             Time.timeScale = 1f; // resume time
-            AudioListener.volume = 1f; // resume volume
             _paused = false; // game is unpaused
         }
 

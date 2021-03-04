@@ -1,7 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Game.Scripts.World
+/*
+ * John Shields - G00348436
+ * NpcController
+ *
+ * Makes the NPC Dogs walk in different positions and rotate in random ranges.
+*/
+namespace NpcDogs
 {
     public class NpcController : MonoBehaviour
     {
@@ -14,20 +20,15 @@ namespace Game.Scripts.World
         
         private void Update()
         {
-            // call function to move NPC dogs
-            RandomMovement();
-        }
-
-        // make the NPC dogs move in different positions
-        private void RandomMovement()
-        {
+            // make the NPC dogs move in different positions
             if (_walkActive == false)
             {
                 StartCoroutine(Wander());
             }
             if (_walkActive)
             {
-                transform.position += transform.forward * (profile * Time.deltaTime);
+                var trans = transform;
+                trans.position += trans.forward * (profile * Time.deltaTime);
             }
             if (_rotateRightActive)
             {

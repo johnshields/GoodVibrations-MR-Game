@@ -3,6 +3,12 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
+/*
+ * John Shields - G00348436
+ * DogController
+ * 
+ * For Controlling the Main Dog Character by Voice Commands, Keyboard and Mouse.
+*/
 namespace Game.Scripts.Player
 {
     public class DogController : MonoBehaviour
@@ -21,7 +27,7 @@ namespace Game.Scripts.Player
         private Rigidbody _bodyPhysics;
         private Animator _animator;
 
-        // animator booleans
+        // for animator booleans
         private int _idleActive;
         private int _walkActive;
         private int _runActive;
@@ -44,7 +50,7 @@ namespace Game.Scripts.Player
             // start grammar recogniser
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
-            Debug.Log("Player Voice Controls loaded...");
+            print("[INFO] Player Voice Controls loaded...");
             
             // for enabling mouse player movement when loaded back from the
             // main menu after going back to main menu from pause menu
@@ -55,11 +61,10 @@ namespace Game.Scripts.Player
 
             // dog animator
             _animator = GetComponent<Animator>();
-            // low profile animations
+            // hash ints to get animator booleans
             _idleActive = Animator.StringToHash("IdleActive");
             _walkActive = Animator.StringToHash("WalkActive");
             _sitActive  = Animator.StringToHash("SitActive");
-            // high profile animations
             _runActive = Animator.StringToHash("RunActive");
             _jumpActive  = Animator.StringToHash("JumpActive");
         }
@@ -74,13 +79,13 @@ namespace Game.Scripts.Player
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("Words detected: " + item);
+                message.Append("[INFO] Words detected: " + item);
                 // for calling in VoiceCommands
                 _spokenWord = item;
             }
 
             // print word spoken by user
-            Debug.Log(message);
+            print(message);
         }
 
         private void Update()
@@ -126,9 +131,8 @@ namespace Game.Scripts.Player
 
         private void Idle()
         {
-            // stop dog
+            // stop dog & idle animation
             transform.position += new Vector3(0, 0, 0);
-            // idle animation
             _animator.SetBool(_idleActive, true);
             _animator.SetBool(_walkActive, false);
             _animator.SetBool(_runActive, false);
@@ -137,11 +141,10 @@ namespace Game.Scripts.Player
 
         private void Walk()
         {
-            // move dog
+            // move dog & walk animation
             transform.Translate(0, 0, lowProfile * Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
-            // walk animation
             _animator.SetBool(_walkActive, true);
             _animator.SetBool(_runActive, false);
             _animator.SetBool(_idleActive, false);
@@ -150,11 +153,10 @@ namespace Game.Scripts.Player
 
         private void Run()
         {
-            // move dog
+            // move dog & run animation
             transform.Translate(0, 0, highProfile * Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
-            // run animation
             _animator.SetBool(_runActive, true);
             _animator.SetBool(_walkActive, false);
             _animator.SetBool(_idleActive, false);
@@ -168,11 +170,10 @@ namespace Game.Scripts.Player
 
         private void Jump()
         {
-            // jump if dog is grounded
+            // jump if dog is grounded & jump animation
             if(Input.GetKeyDown(KeyCode.Space) && _grounded){
                 _bodyPhysics.velocity = transform.TransformDirection(0 , jumpForce, 1);
                 _grounded = false;
-                // jump animation
                 _animator.SetBool(_jumpActive, true);
                 _animator.SetBool(_sitActive, false);
                 _animator.SetBool(_runActive, false);
@@ -187,9 +188,8 @@ namespace Game.Scripts.Player
         
         private void Sit()
         {
-            // stop dog
+            // stop dog & sit animation
             transform.position += new Vector3(0, 0, 0);
-            // sit animation
             _animator.SetBool(_sitActive, true);
             _animator.SetBool(_idleActive, false);
             _animator.SetBool(_walkActive, false);

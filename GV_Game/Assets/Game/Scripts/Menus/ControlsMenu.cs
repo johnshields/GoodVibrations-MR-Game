@@ -1,9 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+/*
+ * John Shields - G00348436
+ * ControlsMenu
+ * 
+ * For UI Button to go back to Main Menu.
+*/
 namespace Game.Scripts.Menus
 {
     public class ControlsMenu : MonoBehaviour
