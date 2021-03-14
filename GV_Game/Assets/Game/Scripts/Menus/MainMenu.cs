@@ -63,14 +63,14 @@ namespace Game.Scripts.Menus
             // call functions for menu controls
             switch (_spokenPhrase)
             {
-                // start items
+                // start rule items
                 case "start the game":
                 case "play the game":
                 case "begin the game":
                 case "continue the game":
                     StartGame();
                     break;
-                // exit items
+                // exit rule items
                 case "exit the game":
                 case "quit the game":
                 case "close the game":

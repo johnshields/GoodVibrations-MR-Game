@@ -22,6 +22,7 @@ namespace Game.Scripts.Player
         [SerializeField] public float highProfile = 3f;
         [SerializeField] public float rotationSpeed = 4.0f;
         [SerializeField] public float jumpForce = 2.0f;
+        [SerializeField] public AudioClip bark;
         private bool _grounded;
         // dog components
         private Rigidbody _bodyPhysics;
@@ -101,26 +102,26 @@ namespace Game.Scripts.Player
         {
             switch (_spokenPhrase)
             {
-                // idle items
+                // idle rule items
                 case "idle dog":
                 case "yield dog":
                 case "stop dog":
                 case "halt dog":
                     Idle();
                     break;
-                // sit items
+                // sit rule items
                 case "sit dog":
                 case "rest dog":
                     Sit();
                     break;
-                // walk items
+                // walk rule items
                 case "walk dog":
                 case "go dog":
                 case "stroll dog":
                 case "wander dog":
                     Walk();
                     break;
-                // run items
+                // run rule items
                 case "run dog":
                 case "jog dog":
                 case "dash dog":

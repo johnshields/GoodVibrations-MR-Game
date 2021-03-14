@@ -34,11 +34,11 @@ Play as a Dog and collect all the bones in the park!
 
 ![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
 
-### [Download Latest Build](https://developer.cloud.unity3d.com/share/share.html?shareId=WJcYQly-pI) ``Windows 64-Bit``
+### [Download Latest Build](https://developer.cloud.unity3d.com/share/share.html?shareId=-Jn09i8Y6I) ``Windows 64-Bit``
 
 # Controls :loudspeaker:
 ## Main Menu
-* Follow each of these voice commands  with ``"game"``
+* Follow each of these voice commands  with ``"the game"``
 
     * Start, Play, Begin or Continue
     * Exit, Quit or Close
