@@ -44346,6 +44346,7 @@ MonoBehaviour:
   highProfile: 3
   rotationSpeed: 4
   jumpForce: 3.9
+  bark: {fileID: 8300000, guid: b0e17c5ba4f76a4469122573147db16a, type: 3}
   cameraTransform: {fileID: 566033622}
 --- !u!1 &473636724266680579
 GameObject:

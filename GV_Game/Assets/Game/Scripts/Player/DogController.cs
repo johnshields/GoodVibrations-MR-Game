@@ -22,7 +22,6 @@ namespace Game.Scripts.Player
         [SerializeField] public float highProfile = 3f;
         [SerializeField] public float rotationSpeed = 4.0f;
         [SerializeField] public float jumpForce = 2.0f;
-        [SerializeField] public AudioClip bark;
         private bool _grounded;
         // dog components
         private Rigidbody _bodyPhysics;
