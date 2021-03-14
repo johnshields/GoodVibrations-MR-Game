@@ -19,19 +19,19 @@
     <!-- start game rule -->
     <rule id="start">
         <one-of>
-            <item>start game</item>
-            <item>play game</item>
-            <item>begin game</item>
-            <item>continue game</item>
+            <item>start the game</item>
+            <item>play the game</item>
+            <item>begin the game</item>
+            <item>continue the game</item>
         </one-of>
     </rule>
 
     <!-- exit game rule -->
     <rule id="exit">
         <one-of>
-            <item>exit game</item>
-            <item>quit game</item>
-            <item>close game</item>
+            <item>exit the game</item>
+            <item>quit the game</item>
+            <item>close the game</item>
         </one-of>
     </rule>
 </grammar>

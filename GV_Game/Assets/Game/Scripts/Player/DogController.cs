@@ -15,7 +15,7 @@ namespace Game.Scripts.Player
     {
         // voice commands
         private GrammarRecognizer _grammarRecognizer;
-        private static string _spokenWord = "";
+        private static string _spokenPhrase = "";
 
         // dog stats
         [SerializeField] public float lowProfile = 1f;
@@ -42,7 +42,7 @@ namespace Game.Scripts.Player
         private void Awake()
         {
             // reset the spoken word to nothing
-            _spokenWord = "";
+            _spokenPhrase = "";
 
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
@@ -79,9 +79,9 @@ namespace Game.Scripts.Player
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("[INFO] Words detected: " + item);
+                message.Append("[INFO] Phrase detected: " + item);
                 // for calling in VoiceCommands
-                _spokenWord = item;
+                _spokenPhrase = item;
             }
 
             // print word spoken by user
@@ -99,7 +99,7 @@ namespace Game.Scripts.Player
         // VoiceCommands - to call functions for dog movement
         private void VoiceCommands()
         {
-            switch (_spokenWord)
+            switch (_spokenPhrase)
             {
                 // idle items
                 case "idle dog":
@@ -170,8 +170,10 @@ namespace Game.Scripts.Player
 
         private void Jump()
         {
-            // jump if dog is grounded & jump animation
-            if(Input.GetKeyDown(KeyCode.Space) && _grounded){
+            var sitActive = _animator.GetBool(_sitActive);
+            
+            // jump if dog is grounded and not sitting & jump animation
+            if(Input.GetKeyDown(KeyCode.Space) && _grounded && !sitActive){
                 _bodyPhysics.velocity = transform.TransformDirection(0 , jumpForce, 1);
                 _grounded = false;
                 _animator.SetBool(_jumpActive, true);

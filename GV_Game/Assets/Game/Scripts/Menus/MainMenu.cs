@@ -18,7 +18,7 @@ namespace Game.Scripts.Menus
     {
         // voice commands
         private GrammarRecognizer _grammarRecognizer;
-        private string _spokenWord = "";
+        private string _spokenPhrase = "";
 
         private void Awake()
         {
@@ -27,8 +27,8 @@ namespace Game.Scripts.Menus
             AudioListener.volume = 1f;
             Time.timeScale = 1f;
             
-            // reset spoken word as they can carry over from Park Scene
-            _spokenWord = "";
+            // reset spoken phrase as they can carry over from Park Scene
+            _spokenPhrase = "";
 
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
@@ -49,9 +49,9 @@ namespace Game.Scripts.Menus
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("[INFO] Words detected: " + item);
+                message.Append("[INFO] Phrase detected: " + item);
                 // for calling in Update
-                _spokenWord = item;
+                _spokenPhrase = item;
             }
 
             // print word spoken by user
@@ -61,19 +61,19 @@ namespace Game.Scripts.Menus
         private void Update()
         {
             // call functions for menu controls
-            switch (_spokenWord)
+            switch (_spokenPhrase)
             {
                 // start items
-                case "start game":
-                case "play game":
-                case "begin game":
-                case "continue game":
+                case "start the game":
+                case "play the game":
+                case "begin the game":
+                case "continue the game":
                     StartGame();
                     break;
                 // exit items
-                case "exit game":
-                case "quit game":
-                case "close game":
+                case "exit the game":
+                case "quit the game":
+                case "close the game":
                     ExitGame();
                     break;
             }
