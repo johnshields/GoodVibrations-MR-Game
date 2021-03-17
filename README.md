@@ -22,7 +22,12 @@ alt="GMIT Logo" width="500" height="200"/>
 ***
 
 <p align="center"><img src="https://user-images.githubusercontent.com/26766163/108714301-4b1cbb00-7511-11eb-88d4-586578282e94.png"
-alt="GAME" width="600"/>
+alt="GAME" width="600"/></p>
+
+<p align="center" style="font-size:25px">Preview </p>
+<p align="center"> 
+<img src="workings/gv.gif"
+alt="GAME" width="600"/></p>
 
 
 # About the Game
