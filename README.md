@@ -35,11 +35,15 @@ Play as a Dog and collect all the bones in the park!
 
 * Developed with Unity ``2020.1.17f1`` and JetBrains Rider ``2020.3.3``
 
+***
+
 ### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=WkVQP6zs6I) ``Windows 64-Bit``
 
 `Note:` Requires `English (US)` selected for computer speech settings.
 
 ![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
+
+***
 
 # Controls :loudspeaker:
 ## Main Menu
