@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
  * John Shields - G00348436
  * SceneChanger
  * 
- * For calling in other Scripts to have a black screen fade out animation when the scene changes.
+ * For calling in other Scripts to have a black screen fade
+ * out animation when the scene changes.
 */
 namespace Game.Scripts.Menus
 {
