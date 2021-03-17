@@ -21,13 +21,11 @@ alt="GMIT Logo" width="500" height="200"/>
 
 ***
 
-<p align="center"><img src="https://user-images.githubusercontent.com/26766163/108714301-4b1cbb00-7511-11eb-88d4-586578282e94.png"
+<p align="center"><img src="workings/good_vibes.png"
 alt="GAME" width="600"/></p>
 
-<p align="center" style="font-size:25px">Preview </p>
-<p align="center"> 
-<img src="workings/gv.gif"
-alt="GAME" width="600"/></p>
+<p align="center" style="font-size:25px">Preview</p>
+<p align="center"> <img src="workings/gv.gif"alt="GAME" width="600"/></p>
 
 
 # About the Game
@@ -35,13 +33,13 @@ Good Vibrations is a Mixed Reality Game that allows the user to control the game
 
 Play as a Dog and collect all the bones in the park!
 
-`Note:` Requires `English (US)` selected for computer speech settings.
-
-![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
+* Developed with Unity ``2020.1.17f1`` and JetBrains Rider ``2020.3.3``
 
 ### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=WkVQP6zs6I) ``Windows 64-Bit``
 
-* Developed with Unity ``2020.1.17f1`` and JetBrains Rider ``2020.3.3``
+`Note:` Requires `English (US)` selected for computer speech settings.
+
+![speech-settings](https://user-images.githubusercontent.com/26766163/108635888-cc287380-7479-11eb-8fb5-d260112f74bd.png)
 
 # Controls :loudspeaker:
 ## Main Menu
@@ -49,7 +47,7 @@ Play as a Dog and collect all the bones in the park!
 
     * start, play, begin or continue
     * exit, quit or close
-
+    
 
 ## In-Game
 * Follow each of these voice commands with ``"dog"``
