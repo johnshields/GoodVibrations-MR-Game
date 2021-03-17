@@ -49,7 +49,7 @@ namespace Game.Scripts.Menus
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("[INFO] Phrase detected: " + item);
+                message.Append("Phrase detected: " + item);
                 // for calling in Update
                 _spokenPhrase = item;
             }
