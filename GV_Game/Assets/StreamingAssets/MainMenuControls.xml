@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <grammar version="1.0" xml:lang="en-US" mode="voice"
          root="menu" tag-format="semantics/1.0"
-         xmlns="http://www.w3.org/2001/06/grammar" >
+         xmlns="http://www.w3.org/2001/06/grammar">
 
     <!-- main menu -->
     <rule id="menu">
@@ -18,20 +18,41 @@
 
     <!-- start game rule -->
     <rule id="start">
-        <one-of>
-            <item>start the game</item>
-            <item>play the game</item>
-            <item>begin the game</item>
-            <item>continue the game</item>
-        </one-of>
+        <item>
+            <tag>out.action = "start the game";</tag>
+            <one-of>
+                <item>start the game</item>
+                <item>play the game</item>
+                <item>begin the game</item>
+                <item>lets play</item>
+                <item>lets start</item>
+                <item>lets begin</item>
+                <item>lets continue</item>
+                <item>continue to the game</item>
+                <item>i want to play the game</item>
+                <item>i want to start the game</item>
+                <item>i want to begin the game</item>
+                <item>i want to continue to the game</item>
+                <item>i would like to play the game</item>
+                <item>i would like start the game</item>
+                <item>i would like begin the game</item>
+                <item>i would like continue to the game</item>
+            </one-of>
+        </item>
     </rule>
 
     <!-- exit game rule -->
     <rule id="exit">
-        <one-of>
-            <item>exit the game</item>
-            <item>quit the game</item>
-            <item>close the game</item>
-        </one-of>
+        <item>
+            <tag>out.action = "exit the game";</tag>
+            <one-of>
+                <item>exit</item>
+                <item>quit</item>
+                <item>close</item>
+                <item>exit the game</item>
+                <item>quit the game</item>
+                <item>close the game</item>
+            </one-of>
+        </item>
     </rule>
 </grammar>

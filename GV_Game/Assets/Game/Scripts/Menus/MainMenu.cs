@@ -18,7 +18,7 @@ namespace Game.Scripts.Menus
     {
         // voice commands
         private GrammarRecognizer _grammarRecognizer;
-        private string _spokenPhrase = "";
+        private string _outAction = "";
 
         private void Awake()
         {
@@ -27,8 +27,8 @@ namespace Game.Scripts.Menus
             AudioListener.volume = 1f;
             Time.timeScale = 1f;
             
-            // reset spoken phrase as they can carry over from Park Scene
-            _spokenPhrase = "";
+            // reset out action as they can carry over from Park Scene
+            _outAction = "";
 
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
@@ -51,7 +51,7 @@ namespace Game.Scripts.Menus
                 var item = meaning.values[0].Trim();
                 message.Append("Phrase detected: " + item);
                 // for calling in Update
-                _spokenPhrase = item;
+                _outAction = item;
             }
 
             // print word spoken by user
@@ -61,19 +61,14 @@ namespace Game.Scripts.Menus
         private void Update()
         {
             // call functions for menu controls
-            switch (_spokenPhrase)
+            switch (_outAction)
             {
-                // start rule items
+                // start rule
                 case "start the game":
-                case "play the game":
-                case "begin the game":
-                case "continue the game":
                     StartGame();
                     break;
-                // exit rule items
+                // exit rule
                 case "exit the game":
-                case "quit the game":
-                case "close the game":
                     ExitGame();
                     break;
             }

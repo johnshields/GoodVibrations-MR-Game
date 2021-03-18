@@ -15,7 +15,7 @@ namespace Game.Scripts.Player
     {
         // voice commands
         private GrammarRecognizer _grammarRecognizer;
-        private static string _spokenPhrase = "";
+        private static string _outAction = "";
 
         // dog stats
         [SerializeField] public float lowProfile = 1f;
@@ -41,8 +41,8 @@ namespace Game.Scripts.Player
 
         private void Awake()
         {
-            // reset the spoken word to nothing
-            _spokenPhrase = "";
+            // reset the out action
+            _outAction = "";
 
             // load in grammar xml file
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
@@ -81,7 +81,7 @@ namespace Game.Scripts.Player
                 var item = meaning.values[0].Trim();
                 message.Append("Phrase detected: " + item);
                 // for calling in VoiceCommands
-                _spokenPhrase = item;
+                _outAction = item;
             }
 
             // print word spoken by user
@@ -99,31 +99,22 @@ namespace Game.Scripts.Player
         // VoiceCommands - to call functions for dog movement
         private void VoiceCommands()
         {
-            switch (_spokenPhrase)
+            switch (_outAction)
             {
-                // idle rule items
-                case "idle dog":
-                case "yield dog":
-                case "stop dog":
-                case "halt dog":
+                // idle rule
+                case "be idle dog":
                     Idle();
                     break;
-                // sit rule items
+                // sit rule
                 case "sit dog":
-                case "rest dog":
                     Sit();
                     break;
-                // walk rule items
+                // walk rule
                 case "walk dog":
-                case "go dog":
-                case "stroll dog":
-                case "wander dog":
                     Walk();
                     break;
-                // run rule items
+                // run rule 
                 case "run dog":
-                case "jog dog":
-                case "dash dog":
                     Run();
                     break;
             }

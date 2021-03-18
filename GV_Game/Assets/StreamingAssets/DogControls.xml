@@ -26,36 +26,186 @@
     <!-- low profile movement -->
     <!-- idle rule -->
     <rule id="idle">
+        <tag>out.action="be idle dog"; </tag>
         <one-of>
-            <item>idle dog</item>
+            <item>be idle</item>
+            <item>yield</item>
+            <item>stop</item>
+            <item>halt</item>
+
+            <item>be idle dog</item>
             <item>yield dog</item>
             <item>stop dog</item>
             <item>halt dog</item>
+
+            <item>be idle boy</item>
+            <item>yield boy</item>
+            <item>stop boy</item>
+            <item>halt boy</item>
+
+            <item>be idle girl</item>
+            <item>yield girl</item>
+            <item>stop girl</item>
+            <item>halt girl</item>
         </one-of>
     </rule>
 
     <!-- sit rule -->
     <rule id="sit">
+        <tag>out.action="sit dog"; </tag>
         <one-of>
+            <item>sit</item>
+            <item>rest</item>
+            <item>relax</item>
+            <item>control yourself</item>
+
             <item>sit dog</item>
             <item>rest dog</item>
+            <item>relax dog</item>
+            <item>control yourself dog</item>
+            
+            <item>sit boy</item>
+            <item>rest boy</item>
+            <item>relax boy</item>
+            <item>control yourself boy</item>
+            
+            <item>sit girl</item>
+            <item>rest girl</item>
+            <item>relax girl</item>
+            <item>control yourself girl</item>
         </one-of>
     </rule>
 
     <!-- walk rule -->
     <rule id="walk">
+        <tag>out.action="walk dog"; </tag>
         <one-of>
+            <item>start walking</item>
+            <item>start strolling</item>
+            <item>start wandering</item>
+            <item>start moving</item>
+            
+            <item>start walking boy</item>
+            <item>start strolling boy</item>
+            <item>start wandering boy</item>
+            <item>start moving boy</item>
+
+            <item>start walking girl</item>
+            <item>start strolling girl</item>
+            <item>start wandering girl</item>
+            <item>start moving girl</item>
+            
+            <item>begin walking</item>
+            <item>begin strolling</item>
+            <item>begin wandering</item>
+            <item>begin moving</item>
+
+            <item>begin walking dog</item>
+            <item>begin strolling dog</item>
+            <item>begin wandering dog</item>
+            <item>begin moving dog</item>
+
+            <item>begin walking boy</item>
+            <item>begin strolling boy</item>
+            <item>begin wandering boy</item>
+            <item>begin moving boy</item>
+
+            <item>begin walking girl</item>
+            <item>begin strolling girl</item>
+            <item>begin wandering girl</item>
+            <item>begin moving girl</item>
+            
+            <item>walk</item>
+            <item>go</item>
+            <item>stroll</item>
+            <item>wander</item>
+            <item>move</item>
+            
             <item>walk dog</item>
             <item>go dog</item>
             <item>stroll dog</item>
             <item>wander dog</item>
+            <item>move dog</item>
+
+            <item>walk boy</item>
+            <item>go boy</item>
+            <item>stroll boy</item>
+            <item>wander boy</item>
+            <item>move boy</item>
+
+            <item>walk girl</item>
+            <item>go girl</item>
+            <item>stroll girl</item>
+            <item>wander girl</item>
+            <item>move girl</item>
         </one-of>
     </rule>
 
     <!-- high profile movement -->
     <!-- run rule -->
     <rule id="run">
+        <tag>out.action="run dog"; </tag>
         <one-of>
+            <item>start running</item>
+            <item>start jogging</item>
+            <item>start dashing</item>
+            <item>begin running</item>
+            <item>begin jogging</item>
+            <item>begin dashing</item>
+
+            <item>start running dog</item>
+            <item>start jogging dog</item>
+            <item>start dashing dog</item>
+            <item>begin running dog</item>
+            <item>begin jogging dog</item>
+            <item>begin dashing dog</item>
+
+            <item>start running boy</item>
+            <item>start jogging boy</item>
+            <item>start dashing boy</item>
+            <item>begin running boy</item>
+            <item>begin jogging boy</item>
+            <item>begin dashing boy</item>
+
+            <item>start running girl</item>
+            <item>start jogging girl</item>
+            <item>start dashing girl</item>
+            <item>begin running girl</item>
+            <item>begin jogging girl</item>
+            <item>begin dashing girl</item>
+            
+            <item>run around</item>
+            <item>jog around</item>
+            <item>dash around</item>
+
+            <item>run around dog</item>
+            <item>jog around dog</item>
+            <item>dash around dog</item>
+
+            <item>run around boy</item>
+            <item>jog around boy</item>
+            <item>dash around boy</item>
+
+            <item>run around girl</item>
+            <item>jog around girl</item>
+            <item>dash around girl</item>
+            
+            <item>run</item>
+            <item>jog</item>
+            <item>dash</item>
+
+            <item>run dog</item>
+            <item>jog dog</item>
+            <item>dash dog</item>
+
+            <item>run boy</item>
+            <item>jog boy</item>
+            <item>dash boy</item>
+
+            <item>run girl</item>
+            <item>jog girl</item>
+            <item>dash girl</item>
+
             <item>run dog</item>
             <item>jog dog</item>
             <item>dash dog</item>
