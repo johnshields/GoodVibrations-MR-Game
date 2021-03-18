@@ -32,7 +32,7 @@ namespace Game.Scripts.Player
             // save Bones to Player
             PlayerPrefs.SetInt("bones", bones);
         }
-        
+
         private void OnGUI()
         {
             // Add the updated Bones amount to BoneCounter

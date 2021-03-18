@@ -26,7 +26,7 @@ namespace Game.Scripts.Menus
             Cursor.visible = true;
             AudioListener.volume = 1f;
             Time.timeScale = 1f;
-            
+
             // reset out action as they can carry over from Park Scene
             _outAction = "";
 
@@ -49,15 +49,14 @@ namespace Game.Scripts.Menus
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("Phrase detected: " + item);
+                message.Append("Out Action: " + item);
                 // for calling in Update
                 _outAction = item;
             }
 
-            // print word spoken by user
             print(message);
         }
-        
+
         private void Update()
         {
             // call functions for menu controls
@@ -80,7 +79,7 @@ namespace Game.Scripts.Menus
         {
             StartCoroutine(PlayGame());
         }
-        
+
         public void Controls()
         {
             StartCoroutine(NextScene());
@@ -99,7 +98,7 @@ namespace Game.Scripts.Menus
             yield return new WaitForSeconds(1);
             SceneChanger.NextScene();
         }
-        
+
         // fade the music & scene out and load park scene
         private static IEnumerator PlayGame()
         {

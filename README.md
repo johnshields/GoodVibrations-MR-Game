@@ -31,7 +31,7 @@ alt="GAME" width="600"/></p>
 # About the Game
 Good Vibrations is a Mixed Reality Game that allows the user to control the game using voice commands, keyboard, and mouse.
 The player plays as a dog in the game and collects bones around the vibrant park setting filled with other dogs and their owners.
-The game has music upbeat music that fits the setting and is credited [here](https://github.com/johnshields/GoodVibrations-MR-Game/blob/main/workings/music_credits.md). Once all the bones are
+The game has upbeat music that fits the setting and is credited [here](https://github.com/johnshields/GoodVibrations-MR-Game/blob/main/workings/music_credits.md). Once all the bones are
 collected, the game ends and loads back to the Main Menu.
 
 * Developed with Unity ``2020.1.17f1`` and JetBrains Rider ``2020.3.3``
@@ -52,7 +52,7 @@ collected, the game ends and loads back to the Main Menu.
 
     * start, play, begin or continue
     * exit, quit or close
-    
+
 
 ## In-Game
 * Follow each of these voice commands with ``"dog"``

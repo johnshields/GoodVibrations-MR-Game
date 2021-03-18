@@ -22,7 +22,6 @@ namespace Game.Scripts.World
             _audioSource = GameObject.Find("Music Player").GetComponent<AudioSource>();
             _musicPlayer.GetComponent<MusicPlayer>().enabled = true;
             _audioSource.GetComponent<AudioSource>().enabled = true;
-            
         }
 
         private void Update()

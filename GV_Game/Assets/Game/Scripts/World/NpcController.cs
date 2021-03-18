@@ -17,7 +17,7 @@ namespace NpcDogs
         private bool _rotateLeftActive;
         private bool _rotateRightActive;
         private bool _walkActive;
-        
+
         private void Update()
         {
             // make the NPC dogs move in different positions
@@ -25,15 +25,18 @@ namespace NpcDogs
             {
                 StartCoroutine(Wander());
             }
+
             if (_walkActive)
             {
                 var trans = transform;
                 trans.position += trans.forward * (profile * Time.deltaTime);
             }
+
             if (_rotateRightActive)
             {
                 transform.Rotate(transform.up * (Time.deltaTime * rotate));
             }
+
             if (_rotateLeftActive)
             {
                 transform.Rotate(transform.right * (Time.deltaTime * -rotate));
@@ -54,7 +57,7 @@ namespace NpcDogs
             yield return new WaitForSeconds(walkTime);
             _walkActive = false;
             yield return new WaitForSeconds(rotateWait);
-            
+
             // switch between right and left rotation
             switch (rotateLorR)
             {

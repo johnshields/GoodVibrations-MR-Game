@@ -22,7 +22,9 @@ namespace Game.Scripts.Player
         [SerializeField] public float highProfile = 3f;
         [SerializeField] public float rotationSpeed = 4.0f;
         [SerializeField] public float jumpForce = 2.0f;
+
         private bool _grounded;
+
         // dog components
         private Rigidbody _bodyPhysics;
         private Animator _animator;
@@ -51,11 +53,11 @@ namespace Game.Scripts.Player
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
             print("[INFO] Player Voice Controls loaded...");
-            
+
             // for enabling mouse player movement when loaded back from the
             // main menu after going back to main menu from pause menu
             GetComponent<DogController>().enabled = true;
-            
+
             // for jumping
             _bodyPhysics = GetComponent<Rigidbody>();
 
@@ -64,9 +66,9 @@ namespace Game.Scripts.Player
             // hash ints to get animator booleans
             _idleActive = Animator.StringToHash("IdleActive");
             _walkActive = Animator.StringToHash("WalkActive");
-            _sitActive  = Animator.StringToHash("SitActive");
+            _sitActive = Animator.StringToHash("SitActive");
             _runActive = Animator.StringToHash("RunActive");
-            _jumpActive  = Animator.StringToHash("JumpActive");
+            _jumpActive = Animator.StringToHash("JumpActive");
         }
 
         private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
@@ -79,12 +81,11 @@ namespace Game.Scripts.Player
             {
                 // get the items for xml file
                 var item = meaning.values[0].Trim();
-                message.Append("Phrase detected: " + item);
+                message.Append("Out Action: " + item);
                 // for calling in VoiceCommands
                 _outAction = item;
             }
 
-            // print word spoken by user
             print(message);
         }
 
@@ -155,17 +156,19 @@ namespace Game.Scripts.Player
         }
 
         // anything the dog collides with make the dog grounded
-        private void OnCollisionEnter(){
+        private void OnCollisionEnter()
+        {
             _grounded = true;
         }
 
         private void Jump()
         {
             var sitActive = _animator.GetBool(_sitActive);
-            
+
             // jump if dog is grounded and not sitting & jump animation
-            if(Input.GetKeyDown(KeyCode.Space) && _grounded && !sitActive){
-                _bodyPhysics.velocity = transform.TransformDirection(0 , jumpForce, 1);
+            if (Input.GetKeyDown(KeyCode.Space) && _grounded && !sitActive)
+            {
+                _bodyPhysics.velocity = transform.TransformDirection(0, jumpForce, 1);
                 _grounded = false;
                 _animator.SetBool(_jumpActive, true);
                 _animator.SetBool(_sitActive, false);
@@ -178,7 +181,7 @@ namespace Game.Scripts.Player
                 _animator.SetBool(_jumpActive, false);
             }
         }
-        
+
         private void Sit()
         {
             // stop dog & sit animation

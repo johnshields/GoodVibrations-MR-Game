@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grammar version="1.0" xml:lang="en-US" mode="voice"
+         root="pauseMenu" tag-format="semantics/1.0"
+         xmlns="http://www.w3.org/2001/06/grammar">
+
+    <!-- pause menu -->
+    <rule id="pauseMenu">
+        <one-of>
+            <item>
+                <ruleref uri="#resume"/>
+            </item>
+            <item>
+                <ruleref uri="#mainMenu"/>
+            </item>
+        </one-of>
+    </rule>
+
+    <!-- resume game rule -->
+    <rule id="resume">
+        <tag>out.action = "resume the game";</tag>
+        <one-of>
+            <item>resume</item>
+            <item>resume game</item>
+            <item>resume the game</item>
+            <item>go back</item>
+            <item>take me back to the game</item>
+        </one-of>
+    </rule>
+
+    <!-- back to main menu rule -->
+    <rule id="mainMenu">
+        <tag>out.action = "back to main menu";</tag>
+        <one-of>
+            <item>main menu</item>
+            <item>go home</item>
+            <item>back to main menu</item>
+            <item>bring up main menu</item>
+            <item>back to the main menu</item>
+            <item>bring up the main menu</item>
+        </one-of>
+    </rule>
+</grammar>

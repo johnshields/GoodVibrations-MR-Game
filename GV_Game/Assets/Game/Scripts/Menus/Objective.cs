@@ -19,7 +19,7 @@ namespace Game.Scripts.Menus
             objective.SetActive(true);
             StartCoroutine(DisableObj());
         }
-        
+
         private IEnumerator DisableObj()
         {
             // disable objective
