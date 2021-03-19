@@ -38,7 +38,7 @@ collected, the game ends and loads back to the Main Menu.
 
 ***
 
-### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=-JE_DK3nT8) ``Windows 64-Bit``
+### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=-yLx0yE6a8) ``Windows 64-Bit``
 
 `Note:` Requires `English (US)` selected for computer speech settings.
 
@@ -60,7 +60,7 @@ These voice commands can be followed with `"the game"`
     * exit, quit or close
 
 ## In-Game
-#### Dog Controls
+### Dog Controls
 These voice commands can be followed with ``"dog"``, `"boy"` or `"girl"`
 * Idle
    * be idle, yield, stop or halt
@@ -82,11 +82,12 @@ These voice commands can be followed with ``"dog"``, `"boy"` or `"girl"`
 * Turn the Dog using the `Mouse`
 * Use the `Space Bar` to Jump
 
-#### Pause Menu
-Use ``Esc`` to pause the game
+### Pause Menu
+Use ``Esc`` to pause the game.
 
 Voice commands are optional the UI buttons can be used too.
 
+###### Pause Game
 These voice commands can be followed with `"the game"`
 * resume or go back
 * take me back to the game

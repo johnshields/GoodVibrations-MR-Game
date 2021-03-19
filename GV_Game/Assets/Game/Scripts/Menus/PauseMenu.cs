@@ -83,7 +83,7 @@ namespace Game.Scripts.Menus
                 AudioListener.volume = 0f;
             }
         }
-
+        
         private void VoiceCommands()
         {
             switch (_outAction)
