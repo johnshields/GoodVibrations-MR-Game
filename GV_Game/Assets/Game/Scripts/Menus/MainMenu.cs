@@ -22,7 +22,7 @@ namespace Game.Scripts.Menus
 
         private void Awake()
         {
-            // turn cursor, volume & time back on from in-game menus interaction
+            // turn cursor, volume & time back on from pause menu interaction
             Cursor.visible = true;
             AudioListener.volume = 1f;
             Time.timeScale = 1f;
@@ -53,7 +53,7 @@ namespace Game.Scripts.Menus
                 // for calling in Update
                 _outAction = item;
             }
-
+            // print out action detected
             print(message);
         }
 

@@ -85,7 +85,7 @@ namespace Game.Scripts.Player
                 // for calling in VoiceCommands
                 _outAction = item;
             }
-
+            // print out action detected
             print(message);
         }
 

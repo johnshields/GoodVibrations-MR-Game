@@ -10,7 +10,8 @@ using UnityEngine.Windows.Speech;
  * John Shields - G00348436
  * PauseMenu
  * 
- * Pause the game if pause button is pressed plus buttons to resume game and go back to Main Menu.
+ * Pause the game if pause button is pressed
+ * plus voice commands & buttons to resume game and go back to Main Menu.
 */
 namespace Game.Scripts.Menus
 {
@@ -61,7 +62,7 @@ namespace Game.Scripts.Menus
                 // for calling in VoiceCommands
                 _outAction = item;
             }
-
+            // print out action detected
             print(message);
         }
 
@@ -118,6 +119,7 @@ namespace Game.Scripts.Menus
             pauseMenu.SetActive(false);
             Cursor.visible = false; // turn off cursor
             Time.timeScale = 1f; // resume time
+            AudioListener.volume = 1f; // turn audio back on
             _paused = false; // game is unpaused
         }
 

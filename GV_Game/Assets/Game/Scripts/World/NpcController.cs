@@ -6,6 +6,8 @@ using UnityEngine;
  * NpcController
  *
  * Makes the NPC Dogs walk in different positions and rotate in random ranges.
+ *
+ * Reference - https://youtu.be/aEPSuGlcTUQ
 */
 namespace NpcDogs
 {

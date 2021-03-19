@@ -38,7 +38,7 @@ collected, the game ends and loads back to the Main Menu.
 
 ***
 
-### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=WkVQP6zs6I) ``Windows 64-Bit``
+### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=-JE_DK3nT8) ``Windows 64-Bit``
 
 `Note:` Requires `English (US)` selected for computer speech settings.
 
@@ -48,29 +48,55 @@ collected, the game ends and loads back to the Main Menu.
 
 # Controls :loudspeaker:
 ## Main Menu
-* Follow each of these voice commands  with ``"the game"``
+Voice commands are optional the UI buttons can be used too.
 
+These voice commands can be followed with `"the game"`
+* Start the game
     * start, play, begin or continue
+    * lets play, lets start, lets begin or lets continue
+    * I want to play, start, begin or continue
+    * I would like to play, start, begin or continue
+* Exit the game
     * exit, quit or close
 
-
 ## In-Game
-* Follow each of these voice commands with ``"dog"``
-
-  * idle, yield, stop or halt
-  * sit or rest
+#### Dog Controls
+These voice commands can be followed with ``"dog"``, `"boy"` or `"girl"`
+* Idle
+   * be idle, yield, stop or halt
+* Sit  
+  * sit, rest relax or control yourself
+* Walk
   * walk, go, stroll or wander
+  * start or begin walking
+  * start or begin strolling
+  * start or begin wandering
+* Run
   * run, jog, or dash
+  * start or begin running
+  * start or begin jogging
+  * start or begin dashing
+  * run, jog or dash around
 
 
 * Turn the Dog using the `Mouse`
 * Use the `Space Bar` to Jump
-* Use ``Esc`` to pause the game
 
-<br>
+#### Pause Menu
+Use ``Esc`` to pause the game
 
-* Use your `surroundings` to your advantage!
-* Remember, the Dog can jump more accurately when not moving!
+Voice commands are optional the UI buttons can be used too.
+
+These voice commands can be followed with `"the game"`
+* resume or go back
+* take me back to the game
+
+###### Back to the Main Menu
+* main menu
+* go home
+* back to main menu
+* back to the main menu
+* bring up the main menu
 
 ***
 ###### END OF README
