@@ -17699,7 +17699,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -18851,6 +18851,7 @@ GameObject:
   - component: {fileID: 918699609}
   - component: {fileID: 918699608}
   - component: {fileID: 918699607}
+  - component: {fileID: 918699610}
   m_Layer: 0
   m_Name: Bench (1)
   m_TagString: Untagged
@@ -18935,6 +18936,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918699605}
   m_Mesh: {fileID: 4300000, guid: 30d872e7273ede5469e4fa7526c55130, type: 3}
+--- !u!65 &918699610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918699605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9521967, y: 1.1086606, z: 2.3717384}
+  m_Center: {x: 0, y: 0.5543303, z: 0.00000017881393}
 --- !u!1 &925784505
 GameObject:
   m_ObjectHideFlags: 0
@@ -20030,6 +20044,7 @@ GameObject:
   - component: {fileID: 959244687}
   - component: {fileID: 959244686}
   - component: {fileID: 959244685}
+  - component: {fileID: 959244688}
   m_Layer: 0
   m_Name: Bench (3)
   m_TagString: Untagged
@@ -20114,6 +20129,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959244683}
   m_Mesh: {fileID: 4300000, guid: 30d872e7273ede5469e4fa7526c55130, type: 3}
+--- !u!65 &959244688
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959244683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95219696, y: 1.1086606, z: 2.371739}
+  m_Center: {x: 0, y: 0.5543303, z: 0.00000017881398}
 --- !u!1 &961604314
 GameObject:
   m_ObjectHideFlags: 0
@@ -40019,6 +40047,7 @@ GameObject:
   - component: {fileID: 1968580697}
   - component: {fileID: 1968580696}
   - component: {fileID: 1968580695}
+  - component: {fileID: 1968580698}
   m_Layer: 0
   m_Name: Bench (2)
   m_TagString: Untagged
@@ -40103,6 +40132,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968580693}
   m_Mesh: {fileID: 4300000, guid: 30d872e7273ede5469e4fa7526c55130, type: 3}
+--- !u!65 &1968580698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968580693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95219696, y: 1.1086606, z: 2.371739}
+  m_Center: {x: 0, y: 0.5543303, z: 0.00000017881398}
 --- !u!1 &1972425124
 GameObject:
   m_ObjectHideFlags: 0
@@ -48570,6 +48612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2357807509226726681}
   - component: {fileID: 2400218999823555821}
+  - component: {fileID: 2353826546043462528}
   m_Layer: 0
   m_Name: Black Dog
   m_TagString: Untagged
@@ -48577,6 +48620,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &2353826546043462528
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353826546043462527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &2354279999383747865
 GameObject:
   m_ObjectHideFlags: 0
@@ -52268,6 +52325,7 @@ GameObject:
   - component: {fileID: 3135938659494044048}
   - component: {fileID: 3135938659495174992}
   - component: {fileID: 9040144105703805540}
+  - component: {fileID: 3135938659497115025}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -52275,6 +52333,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &3135938659497115025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135938659497115024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9521967, y: 1.1086606, z: 2.3717384}
+  m_Center: {x: 0, y: 0.5543303, z: 0.00000017881393}
 --- !u!4 &3141742168114146372
 Transform:
   m_ObjectHideFlags: 0

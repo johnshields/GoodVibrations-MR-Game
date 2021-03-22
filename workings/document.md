@@ -70,7 +70,7 @@ These voice commands can be followed with ``"dog"``, `"boy"` or `"girl"`
   * start or begin dashing
   * run, jog or dash around
 
-All these commands call functions to have the dog be idle, have the dog sit and move in a low or high profile. These commands are blended with the keyboard and mouse. The Spacebar is used to make the dog jump, and the mouse is used to rotate the dog in any desired direction. Like the Main Menu commands, these commands are in a switch statement that calls all the necessary functions to make the dog do the actions and animations listed above.
+All these commands call functions to have the dog be idle, have the dog sit and move in a low or high profile. These commands are blended with the keyboard and mouse. The space bar is used to make the dog jump, and the mouse is used to rotate the dog in any desired direction. Like the Menus commands, these commands are in a switch statement that calls all the necessary functions to make the dog do the actions and animations listed above.
 
 ## Conclusion
 Developing this game was a unique experience. The uniqueness was trying to develop the idea that would work well for a mixed reality experience, which allowed my creative side to flow and develop a fully functional game. I believe the final product turned out quite well from the initial idea and provides a smooth, interactive, and enjoyable experience for the user playing it.
