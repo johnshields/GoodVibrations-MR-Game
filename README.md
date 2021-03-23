@@ -38,7 +38,7 @@ collected, the game ends and loads back to the Main Menu.
 
 ***
 
-### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=bJFFTQ5gAI) ``Windows 64-Bit``
+### [Play the Game!](https://developer.cloud.unity3d.com/share/share.html?shareId=byLC9HpxRI) ``Windows 64-Bit``
 
 `Note:` Requires `English (US)` selected for computer speech settings.
 

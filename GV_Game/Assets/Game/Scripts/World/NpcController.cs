@@ -13,7 +13,7 @@ namespace NpcDogs
     public class NpcController : MonoBehaviour
     {
         // NPC dogs stats for movement.
-        [SerializeField] public float profile = 2f;
+        [SerializeField] public float profile = 1f;
         [SerializeField] public float rotate = 100f;
         private bool _rotateLeftActive;
         private bool _rotateRightActive;
@@ -52,7 +52,7 @@ namespace NpcDogs
             var rotateWait = Random.Range(3, 4);
             var rotateLorR = Random.Range(1, 2);
             var walkWait = Random.Range(1, 4);
-            var walkTime = Random.Range(1, 5);
+            var walkTime = Random.Range(1, 6);
 
             // Use Random Ranges to make walk and rotate NPCs.
             yield return new WaitForSeconds(walkWait);

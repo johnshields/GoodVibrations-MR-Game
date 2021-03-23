@@ -17,11 +17,11 @@ namespace Game.Scripts.Menus
 {
     public class PauseMenu : MonoBehaviour
     {
-        // GrammarRecognizer & string for Voice Commands.
+        // GrammarRecognizer and string for Voice Commands.
         private GrammarRecognizer _grammarRecognizer;
         private string _outAction = "";
 
-        // Pause Menu & Player
+        // Pause Menu and Player
         public GameObject pauseMenu;
         private bool _paused;
         private GameObject _dog;
@@ -68,7 +68,7 @@ namespace Game.Scripts.Menus
             print(message);
         }
 
-        // Call in VoiceCommands & pause the game with Esc key.
+        // Call in VoiceCommands and pause the game with Esc key.
         // Set bool for when is game is pause of unpaused.
         private void Update()
         {

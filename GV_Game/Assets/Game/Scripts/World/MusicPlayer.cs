@@ -12,7 +12,7 @@ namespace Game.Scripts.World
 {
     public class MusicPlayer : MonoBehaviour
     {
-        // Playlist Array and Audio Component & Audio Source.
+        // Playlist Array and Audio Component & Source.
         public AudioClip[] playlist;
         private Component _musicPlayer;
         private AudioSource _audioSource;
