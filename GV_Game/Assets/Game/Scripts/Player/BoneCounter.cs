@@ -11,31 +11,32 @@ namespace Game.Scripts.Player
 {
     public class BoneCounter : MonoBehaviour
     {
+        // Int to collect bones and GameObject for BoneCounter GUI.
         public int bones;
         private GameObject _boneCounter;
 
+        // Find BoneCounter and load Player Bones.
         private void Start()
         {
-            // find BoneCounter & load Player Bones
             _boneCounter = GameObject.Find("CounterCanvas/Text");
             bones = PlayerPrefs.GetInt("bones");
         }
 
+        // Set/reset Bones to 0 on Awake.
         private void Awake()
         {
-            // set/reset Bones to 0
             PlayerPrefs.SetInt("bones", 0);
         }
 
+        // Save Bones to Player.
         private void Update()
         {
-            // save Bones to Player
             PlayerPrefs.SetInt("bones", bones);
         }
 
+        // Add the updated Bones amount to BoneCounter.
         private void OnGUI()
         {
-            // Add the updated Bones amount to BoneCounter
             var counterUI = _boneCounter.GetComponent<Text>();
             counterUI.text = "BONES: " + bones;
         }

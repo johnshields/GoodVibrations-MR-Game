@@ -10,19 +10,20 @@ namespace Game.Scripts.Menus
 {
     public class FadeMusic : MonoBehaviour
     {
+        // Animator & int for animation bool.
         private static Animator _animator;
         private static int _fadeOut;
 
+        // Hash int to get animator trigger.
         private void Start()
         {
-            // hash int to get animator trigger
             _fadeOut = Animator.StringToHash("FadeOut");
             _animator = GetComponent<Animator>();
         }
 
+        // Set animation trigger to fade music out.
         public static void FadeOutMusic()
         {
-            // set animation trigger to fade music out
             _animator.SetTrigger(_fadeOut);
         }
     }

@@ -13,57 +13,55 @@ namespace Game.Scripts.Player
 {
     public class DogController : MonoBehaviour
     {
-        // voice commands
+        // GrammarRecognizer & string for Voice Commands.
         private GrammarRecognizer _grammarRecognizer;
         private static string _outAction = "";
 
-        // dog stats
+        // Dog stats for movement.
         [SerializeField] public float lowProfile = 1f;
         [SerializeField] public float highProfile = 3f;
         [SerializeField] public float rotationSpeed = 4.0f;
         [SerializeField] public float jumpForce = 2.0f;
-
         private bool _grounded;
 
-        // dog components
+        // Dog components.
         private Rigidbody _bodyPhysics;
         private Animator _animator;
 
-        // for animator booleans
+        // For animator booleans.
         private int _idleActive;
         private int _walkActive;
         private int _runActive;
         private int _jumpActive;
         private int _sitActive;
 
-        // for camera movement 
+        // For camera movement with mouse.
         public Transform cameraTransform;
         private float _yaw;
         private float _pitch;
 
+        // Start Grammar Recognizer, find necessary components and animations.
         private void Awake()
         {
-            // reset the out action
+            // reset out action
             _outAction = "";
-
-            // load in grammar xml file
+            // Load in grammar xml file.
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
                 "DogControls.xml"), ConfidenceLevel.Low);
-            // start grammar recogniser
+            // Start grammar recogniser.
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
             print("[INFO] Player Voice Controls loaded...");
 
-            // for enabling mouse player movement when loaded back from the
-            // main menu after going back to main menu from pause menu
+            // For enabling mouse player movement when loaded back from the
+            // main menu after going back to main menu from pause menu.
             GetComponent<DogController>().enabled = true;
 
             // for jumping
             _bodyPhysics = GetComponent<Rigidbody>();
 
-            // dog animator
+            // Dog animator and Hash ints to get animator booleans.
             _animator = GetComponent<Animator>();
-            // hash ints to get animator booleans
             _idleActive = Animator.StringToHash("IdleActive");
             _walkActive = Animator.StringToHash("WalkActive");
             _sitActive = Animator.StringToHash("SitActive");
@@ -71,33 +69,35 @@ namespace Game.Scripts.Player
             _jumpActive = Animator.StringToHash("JumpActive");
         }
 
+        // Gets phases from DogControls.xml and matches them to User input.
         private static void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
         {
             var message = new StringBuilder();
-            // read the semantic meanings from the args passed in
+            // Read the semantic meanings from the args passed in.
             var meanings = args.semanticMeanings;
-            // for each to get all the meanings
+            // For each to get all the meanings.
             foreach (var meaning in meanings)
             {
-                // get the items for xml file
+                // Get the items for xml file.
                 var item = meaning.values[0].Trim();
                 message.Append("Out Action: " + item);
-                // for calling in VoiceCommands
+                // For calling in VoiceCommands.
                 _outAction = item;
             }
-            // print out action detected
+
+            // Print out action detected.
             print(message);
         }
 
+        // Call necessary commands for movement.
         private void Update()
         {
-            // call necessary commands for movement
             VoiceCommands();
             Jump();
             CameraMovement();
         }
 
-        // VoiceCommands - to call functions for dog movement
+        // VoiceCommands - to call functions for dog movement.
         private void VoiceCommands()
         {
             switch (_outAction)
@@ -121,9 +121,9 @@ namespace Game.Scripts.Player
             }
         }
 
+        // Stop dog and idle animation.
         private void Idle()
         {
-            // stop dog & idle animation
             transform.position += new Vector3(0, 0, 0);
             _animator.SetBool(_idleActive, true);
             _animator.SetBool(_walkActive, false);
@@ -131,9 +131,9 @@ namespace Game.Scripts.Player
             _animator.SetBool(_sitActive, false);
         }
 
+        // Move dog (in a low profile), mouse rotation and walk animation.
         private void Walk()
         {
-            // move dog & walk animation
             transform.Translate(0, 0, lowProfile * Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
@@ -143,9 +143,9 @@ namespace Game.Scripts.Player
             _animator.SetBool(_sitActive, false);
         }
 
+        // Move dog (in a high profile), mouse rotation and run animation.
         private void Run()
         {
-            // move dog & run animation
             transform.Translate(0, 0, highProfile * Time.deltaTime);
             var y = Input.GetAxis("Horizontal") * rotationSpeed;
             transform.Rotate(0, y, 0);
@@ -155,17 +155,17 @@ namespace Game.Scripts.Player
             _animator.SetBool(_sitActive, false);
         }
 
-        // anything the dog collides with make the dog grounded
+        // Anything the dog collides with make the dog grounded.
         private void OnCollisionEnter()
         {
             _grounded = true;
         }
 
+        // Jump if space bar is pressed, dog is grounded and not sitting & jump animation.
         private void Jump()
         {
             var sitActive = _animator.GetBool(_sitActive);
 
-            // jump if dog is grounded and not sitting & jump animation
             if (Input.GetKeyDown(KeyCode.Space) && _grounded && !sitActive)
             {
                 _bodyPhysics.velocity = transform.TransformDirection(0, jumpForce, 1);
@@ -182,9 +182,9 @@ namespace Game.Scripts.Player
             }
         }
 
+        // Stop dog and sit animation.
         private void Sit()
         {
-            // stop dog & sit animation
             transform.position += new Vector3(0, 0, 0);
             _animator.SetBool(_sitActive, true);
             _animator.SetBool(_idleActive, false);
@@ -192,16 +192,16 @@ namespace Game.Scripts.Player
             _animator.SetBool(_runActive, false);
         }
 
+        // Move camera with mouse to rotate dog in desired direction.
         private void CameraMovement()
         {
-            // move camera with mouse
             _yaw += rotationSpeed * Input.GetAxisRaw("Mouse X");
             _pitch -= rotationSpeed * Input.GetAxisRaw("Mouse Y");
             transform.eulerAngles = new Vector3(0, _yaw, 0);
             cameraTransform.eulerAngles = new Vector3(_pitch, _yaw, 0);
         }
 
-        // stop the Grammar Recognizer if there is no input
+        // Stop the Grammar Recognizer if there is no input.
         private void OnApplicationQuit()
         {
             if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;

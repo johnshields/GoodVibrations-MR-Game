@@ -16,50 +16,52 @@ namespace Game.Scripts.Menus
 {
     public class MainMenu : MonoBehaviour
     {
-        // voice commands
+        // GrammarRecognizer and string for Voice Commands.
         private GrammarRecognizer _grammarRecognizer;
         private string _outAction = "";
 
+        // Enable Cursor, set time & volume and start Grammar Recognizer.
         private void Awake()
         {
-            // turn cursor, volume & time back on from pause menu interaction
+            // turn cursor, volume and time back on from pause menu interaction
             Cursor.visible = true;
             AudioListener.volume = 1f;
             Time.timeScale = 1f;
 
-            // reset out action as they can carry over from Park Scene
+            // reset out action
             _outAction = "";
-
-            // load in grammar xml file
+            // Load in grammar xml file.
             _grammarRecognizer = new GrammarRecognizer(Path.Combine(Application.streamingAssetsPath,
                 "MainMenuControls.xml"), ConfidenceLevel.Low);
-            // start grammar recogniser
+            // Start grammar recogniser.
             _grammarRecognizer.OnPhraseRecognized += GR_OnPhraseRecognised;
             _grammarRecognizer.Start();
             print("[INFO] Menu Voice Controls loaded...");
         }
 
+        // Gets phases from MainMenuControls.xml and matches them to User input.
         private void GR_OnPhraseRecognised(PhraseRecognizedEventArgs args)
         {
             var message = new StringBuilder();
-            // read the semantic meanings from the args passed in
+            // Read the semantic meanings from the args passed in.
             var meanings = args.semanticMeanings;
-            // for each to get all the meanings
+            // For each to get all the meanings.
             foreach (var meaning in meanings)
             {
-                // get the items for xml file
+                // Get the items for xml file.
                 var item = meaning.values[0].Trim();
                 message.Append("Out Action: " + item);
-                // for calling in Update
+                // For calling in Update.
                 _outAction = item;
             }
+
             // print out action detected
             print(message);
         }
 
+        // Call functions with voice commands for menu controls.
         private void Update()
         {
-            // call functions for menu controls
             switch (_outAction)
             {
                 // start rule
@@ -74,7 +76,7 @@ namespace Game.Scripts.Menus
         }
 
 
-        // menu buttons/commands
+        // Menu buttons/commands for menu controls.
         public void StartGame()
         {
             StartCoroutine(PlayGame());
@@ -90,7 +92,7 @@ namespace Game.Scripts.Menus
             Application.Quit();
         }
 
-        // fade the music & scene out and load next scene
+        // Fade the music & scene out and load next scene.
         private static IEnumerator NextScene()
         {
             FadeMusic.FadeOutMusic();
@@ -99,7 +101,7 @@ namespace Game.Scripts.Menus
             SceneChanger.NextScene();
         }
 
-        // fade the music & scene out and load park scene
+        // Fade the music & scene out and load park scene.
         private static IEnumerator PlayGame()
         {
             FadeMusic.FadeOutMusic();
@@ -108,7 +110,7 @@ namespace Game.Scripts.Menus
             SceneManager.LoadScene("ParkScene");
         }
 
-        /// stop the Grammar Recognizer if there is no input
+        // Stop the Grammar Recognizer if there is no input.
         private void OnApplicationQuit()
         {
             if (_grammarRecognizer == null || !_grammarRecognizer.IsRunning) return;

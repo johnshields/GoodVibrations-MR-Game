@@ -12,13 +12,13 @@ namespace Game.Scripts.Menus
 {
     public class ControlsMenu : MonoBehaviour
     {
+        // Start a Coroutine to go back the main menu.
         public void BackMainMenu()
         {
-            // to the main menu
             StartCoroutine(FadeOutMainMenu());
         }
 
-        // fade the music & scene out to main menu
+        // Fade the music & scene out to main menu.
         private static IEnumerator FadeOutMainMenu()
         {
             FadeMusic.FadeOutMusic();

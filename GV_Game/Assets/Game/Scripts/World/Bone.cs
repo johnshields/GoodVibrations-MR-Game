@@ -12,33 +12,33 @@ namespace Game.Scripts.World
 {
     public class Bone : MonoBehaviour
     {
+        // Pickup sounds, Bone Counter and Player.
         [SerializeField] public AudioClip pickupSound;
         [SerializeField] public AudioClip bark;
         private Component _boneCounter;
         private GameObject _dog;
 
+        // Find BoneCounter and Player.
         private void Start()
         {
-            // find BoneCounter & Player
             _boneCounter = GameObject.Find("Player").GetComponent<BoneCounter>();
             _dog = GameObject.Find("Player");
         }
 
+        // Rotate Bone every frame.
         private void Update()
         {
-            // rotate Bone
             transform.Rotate(new Vector3(1f, 1f, 1f));
         }
 
+        // Allows only the Player to collect the bones. Plus adds collected bones to the Bone Counter.
         private void OnTriggerEnter(Collider other)
         {
-            // only detect collisions from Player
             if (other.gameObject != _dog) return;
             var position = transform.position;
-            // pickup sounds
             AudioSource.PlayClipAtPoint(pickupSound, position);
             AudioSource.PlayClipAtPoint(bark, position);
-            // destroy Bone & add to the Bone Counter
+            // Destroy Bone and add to the Bone Counter.
             Destroy(gameObject);
             _boneCounter.GetComponent<BoneCounter>().bones += 1;
         }

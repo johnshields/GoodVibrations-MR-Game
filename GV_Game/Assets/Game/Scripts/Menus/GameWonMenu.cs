@@ -14,6 +14,7 @@ namespace Game.Scripts.Menus
 {
     public class GameWonMenu : MonoBehaviour
     {
+        // Game Won Menu Banner, Bone Counting System and Audio Components & Sources.
         [SerializeField] public GameObject gameWon;
         private Component _boneCounter;
         private BoneCounter _boneScore;
@@ -21,9 +22,9 @@ namespace Game.Scripts.Menus
         private AudioSource _audioSource;
         private AudioSource _wonAudioSource;
 
+        // Find necessary components and set Banner to false.
         private void Awake()
         {
-            // find necessary components & set Game Won Menu to false
             _boneCounter = GameObject.Find("Player").GetComponent<BoneCounter>();
             _boneScore = _boneCounter.GetComponent<BoneCounter>();
             _musicPlayer = GameObject.Find("Music Player").GetComponent<MusicPlayer>();
@@ -32,21 +33,20 @@ namespace Game.Scripts.Menus
             gameWon.SetActive(false);
         }
 
+        // Display Banner and disable music if all 20 bones are collected.
+        // Next play game won sound and start a Coroutine to go to the main menu.
         private void Update()
         {
-            // Game ends when all bones are collected
             if (_boneScore.bones != 20 || _wonAudioSource.isPlaying) return;
-            // display Game Won Menu & disable music
             gameWon.SetActive(true);
             _audioSource.GetComponent<AudioSource>().enabled = false;
             _musicPlayer.GetComponent<MusicPlayer>().enabled = false;
-            // play game won sound & go to the main menu
             _wonAudioSource.Play();
             StartCoroutine(FadeOutMainMenu());
         }
 
 
-        // fade the scene out to main menu
+        // Fade the scene out to main menu.
         private static IEnumerator FadeOutMainMenu()
         {
             yield return new WaitForSeconds(4);

@@ -6,28 +6,28 @@ using UnityEngine;
  * NpcController
  *
  * Makes the NPC Dogs walk in different positions and rotate in random ranges.
- *
  * Reference - https://youtu.be/aEPSuGlcTUQ
 */
 namespace NpcDogs
 {
     public class NpcController : MonoBehaviour
     {
-        // NPC dogs stats
+        // NPC dogs stats for movement.
         [SerializeField] public float profile = 2f;
         [SerializeField] public float rotate = 100f;
         private bool _rotateLeftActive;
         private bool _rotateRightActive;
         private bool _walkActive;
 
+        // If the NPCs are not walking start a Coroutine to move them in different positions.
+        // Plus change between walking and rotating.
         private void Update()
         {
-            // make the NPC dogs move in different positions
             if (_walkActive == false)
             {
                 StartCoroutine(Wander());
             }
-
+         
             if (_walkActive)
             {
                 var trans = transform;
@@ -47,20 +47,21 @@ namespace NpcDogs
 
         private IEnumerator Wander()
         {
+            // Set random Range for Rotations and Walking.
             var rotationTime = Random.Range(1, 3);
             var rotateWait = Random.Range(3, 4);
             var rotateLorR = Random.Range(1, 2);
             var walkWait = Random.Range(1, 4);
             var walkTime = Random.Range(1, 5);
 
-            // NPC dogs walk and rotate
+            // Use Random Ranges to make walk and rotate NPCs.
             yield return new WaitForSeconds(walkWait);
             _walkActive = true;
             yield return new WaitForSeconds(walkTime);
             _walkActive = false;
             yield return new WaitForSeconds(rotateWait);
 
-            // switch between right and left rotation
+            // Switch between right and left rotation.
             switch (rotateLorR)
             {
                 case 1:

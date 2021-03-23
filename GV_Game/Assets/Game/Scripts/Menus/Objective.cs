@@ -13,16 +13,16 @@ namespace Game.Scripts.Menus
     {
         [SerializeField] public GameObject objective;
 
+        // Show objective on Awake and start a Coroutine to disable it.
         private void Awake()
         {
-            // show objective
             objective.SetActive(true);
             StartCoroutine(DisableObj());
         }
 
+        // Disable objective after 5 seconds.
         private IEnumerator DisableObj()
         {
-            // disable objective
             yield return new WaitForSeconds(5);
             objective.SetActive(false);
         }
