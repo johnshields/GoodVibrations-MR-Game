@@ -65,7 +65,7 @@ These voice commands can be followed with ``"dog"``, `"boy"` or `"girl"`
 * Idle
    * be idle, yield, stop or halt
 * Sit  
-  * sit, rest relax or control yourself
+  * sit, rest, relax or control yourself
 * Walk
   * walk, go, stroll or wander
   * start or begin walking
